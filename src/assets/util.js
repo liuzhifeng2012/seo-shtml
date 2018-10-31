@@ -1,13 +1,13 @@
 let util = {}
 
-util.vars={} 
+util.vars = {}
 
-let domain = window.location.protocol+'//'+ window.location.hostname +'/';
-if(domain.indexOf("seo.davfang.com") > -1){//正式环境
-    util.vars.domain=window.location.protocol+'//'+'www.davfang.com/'
+let domain = window.location.protocol + '//' + window.location.hostname + '/';
+if (domain.indexOf("seo.davfang.com") > -1) {//正式环境
+    util.vars.domain = window.location.protocol + '//' + 'www.davfang.com/'
 }
-else{//测试环境
-    util.vars.domain=window.location.protocol+'//'+'c.davfang.com/'
+else {//测试环境
+    util.vars.domain = window.location.protocol + '//' + 'c.davfang.com/'
 }
 
 //获取浏览器参数
@@ -112,3 +112,17 @@ util.formatDate = function (date) {
     }
 };
 
+util.jsonStringify = function (arg) {
+    let qsArr = [];
+    for (let k in arg) {
+        let v = arg[k];
+        qsArr.push({
+            name: k,
+            value: ("" + v).toString()
+        })
+    }
+    for (let i = 0; i < qsArr.length; i++) {
+        qsArr[i] = [qsArr[i].name, qsArr[i].value].join('=')
+    }
+    return qsArr.join('&');
+};

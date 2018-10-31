@@ -3,6 +3,10 @@ var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var px2rem = require('postcss-px2rem');  
 var sass = require('gulp-sass'); //sass
+var cssnano = require('gulp-cssnano'); // css的层级压缩合并
+var uglify = require('gulp-uglify'); //js压缩  
+var concat=require('gulp-concat');//js合并
+var rename = require('gulp-rename'); //重命名  
 var imagemin = require('gulp-imagemin'); //图片压缩 
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
@@ -45,7 +49,8 @@ function dev() {
             autoprefixer({browsers: ['> 1%'], cascade: false}),
             px2rem({remUnit: 37.5})
         ];
-        return gulp.src(Config.css.src).pipe(postcss(plugins)).pipe(gulp.dest(Config.css.dist)).pipe(reload({
+        return gulp.src(Config.css.src).pipe(postcss(plugins))
+        .pipe(gulp.dest(Config.css.dist)).pipe(reload({
             stream: true
         }));
     });
@@ -57,7 +62,8 @@ function dev() {
             autoprefixer({browsers: ['> 1%'], cascade: false}),
             px2rem({remUnit: 37.5})
         ];
-        return gulp.src(Config.sass.src).pipe(sass()).pipe(postcss(plugins)).pipe(gulp.dest(Config.sass.dist)).pipe(reload({
+        return gulp.src(Config.sass.src).pipe(sass()).pipe(postcss(plugins))
+        .pipe(gulp.dest(Config.sass.dist)).pipe(reload({
             stream: true
         }));
     });
@@ -68,6 +74,14 @@ function dev() {
         return gulp.src(Config.js.src).pipe(babel()).pipe(gulp.dest(Config.js.dist)).pipe(reload({
             stream: true
         }));
+    });
+    /** 
+     * 合并所有js文件并做压缩处理
+     */
+    gulp.task('js-concat', function () {
+        return gulp.src(Config.js.src).pipe(babel()).pipe(concat(Config.js.build_name)).pipe(gulp.dest(Config.js.dist)).pipe(rename({
+            suffix: '.min'
+        })).pipe(uglify()).pipe(gulp.dest(Config.js.dist));
     });
     /** 
      * 图片处理 

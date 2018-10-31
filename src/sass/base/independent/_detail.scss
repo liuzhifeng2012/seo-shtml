@@ -92,3 +92,26 @@
         }
      }
 }
+.loginboxWrap{
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0; 
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  .loginbox{ 
+    width: 158px;
+    height: 90px;
+    line-height: 90px;
+    background: #343434; 
+    opacity: 0.9;
+    color: #fff;
+    font-size: 0.426667rem;
+    text-align: center;
+    border-radius: 0.133333rem; 
+    z-index: 2001;
+    margin-top: 50%;
+  }
+}

@@ -20,11 +20,11 @@
         <div class="hidid" >2676</div>
         <div>
             <header class="top-header">
-                <a class="header-left"></a>
+                <a class="header-left" @click="backToHome"></a>
                 <article class="header-middle">详情页</article>
             </header>
-            <div class="top-header-seize" style="width:100%;height:1.17333rem;line-height:1.17333rem;">
-            </div>
+            <!-- <div class="top-header-seize" style="width:100%;height:1.17333rem;line-height:1.17333rem;">
+            </div> -->
         </div>
         <!-- 详情 -->
         <div class="vf-detail">
@@ -38,7 +38,7 @@
                             <img :src="author.author_avatar+'?x-oss-process=image/resize,m_fill,h_200,w_200,limit_0'" alt="" v-else>
                         </div>
                         <div class="header-info_text">
-                            <span @click="goLargeVipDetail" v-stat='{action_type:2,button_type:7}'>
+                            <span @click="goLargeVipDetail">
                                 <img src="./images/icon-v.png" alt="" v-if="false">{{viewDetail.author_name}}
                             </span>
                             <span v-if="viewDetail.publish_time">{{publishTime}}</span>
@@ -47,7 +47,7 @@
                             <div class="header-info_btn already-concern" @click.stop="postFollow" v-if="isFollow">
                                 <a href="javascript:;">已关注</a>
                             </div>
-                            <div class="header-info_btn" @click.stop="postFollow" v-else v-stat='{action_type:2,button_type:8}'>
+                            <div class="header-info_btn" @click.stop="postFollow" v-else>
                                 <a href="javascript:;">
                                     <i></i>关注</a>
                             </div>
@@ -60,13 +60,13 @@
 
                 <!--点赞 -->
                 <div class="btn-digg">
-                    <a v-if="!isDigg" class="border" href="javascript:;" v-stat='{action_type:2,button_type:9}' @click="postLike(2)">
+                    <a v-if="!isDigg" class="border" href="javascript:;"  @click="postLike(2)">
                         <svg class="icon" aria-hidden="true">
                             <use xlink:href="#icon-thumbs-up"></use>
                         </svg>
                         <p v-if="likeAmount"> {{likeAmount > 0 ? (likeAmount > 99 ? "99+" : likeAmount) : ""}}</p>
                     </a>
-                    <a v-if="isDigg" class="btn-digg-on border" href="javascript:;" v-stat='{action_type:2,button_type:9}' @click="postLike(2)">
+                    <a v-if="isDigg" class="btn-digg-on border" href="javascript:;"  @click="postLike(2)">
                         <svg class="icon" aria-hidden="true">
                             <use xlink:href="#icon-thumbs-up-color1"></use>
                         </svg>
@@ -82,7 +82,7 @@
             </div>
         </div>
         <!-- 大V关注信息 -->
-        <div class="V-info" @click="goLargeVipDetail" v-stat='{action_type:2,button_type:10}'>
+        <div class="V-info" @click="goLargeVipDetail" >
             <div class="V-info_content">
                 <div class="V-pic">
                     <img src="./images/default_user_img.png" v-if="!author.author_avatar" />
@@ -99,7 +99,7 @@
                             <div class="header-info_btn already-concern" @click.stop="postFollow" v-if="isFollow">
                                 <a href="javascript:;">已关注</a>
                             </div>
-                            <div class="header-info_btn" @click.stop="postFollow" v-stat='{action_type:2,button_type:11}' v-else>
+                            <div class="header-info_btn" @click.stop="postFollow"  v-else>
                                 <a href="javascript:;">
                                     <i></i>关注</a>
                             </div>
@@ -120,7 +120,7 @@
                 <div class="vf-detail_container__otherV " v-if="recommendList&&recommendList.length>0">
                     <h3 class="title">其他V房大V观点</h3>
                     <ul>
-                        <li v-for="(item, index) in recommendList" :key="index" @click="goDetail(item.view_id)" v-stat='{action_type:2,button_type:12}'>
+                        <li v-for="(item, index) in recommendList" :key="index" @click="goDetail(item.view_id)">
                             <a href="javascript:;" v-if="item.view_title">{{item.view_title}}</a>
                         </li>
                     </ul>
@@ -132,12 +132,12 @@
 
                         <div class="comm-none" v-if="!commentList.comment_list">
                             暂无用户发表评论，
-                            <a href="javascript:;" @click="clickComment" v-stat='{action_type:2,button_type:15,extra:view_id}'>抢沙发</a>
-                        </div>
+                            <a href="javascript:;" @click="clickComment" >抢沙发</a>
+                        </div>  
 
                         <div class="evaulate-list" v-if="commentList.comment_list" v-for="(item, index) in commentList.comment_list" :key="index">
                             <div class="pic">
-                                <img :src="!item.user_avatar?require('./images/default_user_img.png'):item.user_avatar">
+                                <img :src="!item.user_avatar?'./images/default_user_img.png':item.user_avatar">
                             </div>
                             <div class="info">
                                 <div class="info-content">
@@ -147,7 +147,7 @@
                                         <span class="times">{{item.publish_time}}</span>
 
                                         <!--评论点赞-->
-                                        <span class="nums" @click="postCommentLike(item.comment_id, item.is_like)" v-stat='{action_type:2,button_type:13}'>
+                                        <span class="nums" @click="postCommentLike(item.comment_id, item.is_like)" >
                                             <svg class="icon on" aria-hidden="true" v-if="item.is_like">
                                                 <use xlink:href="#icon-thumbs-up-color1"></use>
                                             </svg>
@@ -156,7 +156,7 @@
                                             </svg>{{item.like_amount > 99 ? "99+" : item.like_amount + ""}}
                                         </span>
                                         <!--回复评论按钮-->
-                                        <span class="message" @click="showReplayInput(item.comment_id)" v-stat='{action_type:2,button_type:14,extra: view_id||""}'>
+                                        <span class="message" @click="showReplayInput(item.comment_id)">
                                             <svg class="icon" aria-hidden="true">
                                                 <use xlink:href="#icon-message-square"></use>
                                             </svg>
@@ -187,12 +187,12 @@
         </div>
         <!-- 底部 -->
         <div class="detail-footer border-top">
-            <div class="detail-footer_left" @click="clickComment" v-stat='{action_type:2,button_type:15,extra:view_id}'>
+            <div class="detail-footer_left" @click="clickComment" >
                 写评论...
             </div>
             <div class="detail-footer_right">
                 <!--底部评论总数量 -->
-                <a onclick="javascript:document.getElementById('comment-list').scrollIntoView()" v-stat='{action_type:2,button_type:16,extra:view_id || ""}'>
+                <a onclick="javascript:document.getElementById('comment-list').scrollIntoView()" >
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-message-square"></use>
                     </svg>
@@ -200,7 +200,7 @@
                         {{commentList.total_count > 99 ? "99+" : commentList.total_count + ""}}</p>
                 </a>
                 <!--新增底部点赞 -->
-                <a href="javascript:;" @click="postCollect(1)" v-stat='{action_type:2,button_type:17}'>
+                <a href="javascript:;" @click="postCollect(1)">
                     <svg class="icon" aria-hidden="true" v-if="!isCollect">
                         <use xlink:href="#icon-star"></use>
                     </svg>
@@ -213,22 +213,23 @@
 
 
         <!--新增评论 弹窗-->
-        <div class="mask mask-black" @click="cancelComment" :style="{display:showCommentLayer?'block':'none' }"></div>
+        <!-- <div class="mask mask-black" @click="cancelComment" :style="{display:showCommentLayer?'block':'none' }"></div>
         <div class="evaluate-modal" :style="{display:showCommentLayer?'block':'none'} ">
             <div class="vf-evaluate">
                 <textarea class="textarea" ref="ta_commnetContent" placeholder="有话要说..." maxlength="500" v-model.trim="commentContent"></textarea>
                 <button type="button" class="phone-btn" @click="submitComment">提 交</button>
             </div>
-        </div>
+        </div> -->
 
         <!--新增回复弹窗 -->
-        <div class="mask mask-black" @click="cancelComment" :style="{display:showReplyLayer?'block':'none' }"></div>
+        <!-- <div class="mask mask-black" @click="cancelComment" :style="{display:showReplyLayer?'block':'none' }"></div>
         <div class="evaluate-modal" :style="{display:showReplyLayer?'block':'none'} ">
             <div class="vf-evaluate">
                 <textarea class="textarea" ref="ta_replyContent" :placeholder="'回复 '+replyingComment.user_name" maxlength="500" v-model.trim="replyContent"></textarea>
                 <button type="button" class="phone-btn" @click="postCommentReply">提 交</button>
             </div>
-        </div>
+        </div> -->
+
         <!-- 新增浮动按钮 -->
         <div class="floatBtnToHome" @click="backToHome">
             <img src="./images/icon_tohome_btn.png">
@@ -239,6 +240,13 @@
             <div class="loader">
                 <img src="./images/c-loading.svg">
                 <div class="msgText">正在努力加载中</div>
+            </div>
+        </div>
+
+        <!--登录弹窗-->
+        <div class="loginboxWrap" v-show="loginWrapState">
+            <div class="loginbox">
+                请先登录
             </div>
         </div>
     </div>
