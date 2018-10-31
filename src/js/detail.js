@@ -43,10 +43,10 @@ new Vue({
             subPostCommentReplyState: true,//提交回复开关状态
             coverdivState: true,//遮罩层展示状态
             isOwnArticle: false,//是否是大v自己的文章
-            loginWrapState:false,//是否显示登录弹窗
+            loginWrapState: false,//是否显示登录弹窗
         }
-    },
-    watch: {},
+    }, 
+    watch: {}, 
     computed: {
         publishTime() {
             if (typeof (this.viewDetail.publish_time) === 'number') {
@@ -61,6 +61,8 @@ new Vue({
         window.removeEventListener("scroll", this.onScrollPull);//移除滚动监听 
     },
     created() {
+        // console.log(util.vars.domain);
+        // console.log(document.referrer)
         this.initData();
     },
     mounted() {
@@ -111,8 +113,8 @@ new Vue({
         },
         initData(to, from) {
             this.resetData();
-            this.view_id = 2676;
-            // this.view_id = document.querySelector(".hidid").innerText||2676;
+            // this.view_id = 2676;
+            this.view_id = document.querySelector(".hidid").innerText || 2676;
             this.fetchViewDetail();
             this.fetchStatistic();
             this.fetchRecommendList();
@@ -273,10 +275,11 @@ new Vue({
         },
         //关注大v
         postFollow() {
-            this.loginWrapState=true;
-            setTimeout(()=>{
-               window.open(util.vars.domain+"pages/BindingNumber?sourcepath='seo'","_self");
-            },1000)
+            this.loginWrapState = true;
+            setTimeout(() => {
+                //    window.open(util.vars.domain+"pages/BindingNumberMid?sourcepath=seo&id="+this.view_id,"_self");
+                window.open("http://192.168.1.225/pages/BindingNumberMid?sourcepath=seo&id=" + this.view_id, "_self");
+            }, 1000)
             // // 是否关注大V
             // this.$parent.login(4).then((res) => {
             //     let follow_type = !this.isFollow + 0;
@@ -298,21 +301,21 @@ new Vue({
             let next_status =
                 action == 2 ?
                     !this.isLike + 0 :
-                    !this.isCollect + 0; 
-      
+                    !this.isCollect + 0;
+
             util.ajaxPost('/api/view/change_action_status', util.jsonStringify({
                 'view_id': this.view_id,
                 'action': action,
                 'status': next_status
-            })).then((res) => { 
+            })).then((res) => {
                 if (res.code == 1) {
                     // 更新状态 点赞不需要验证登录
                     if (action == 2) {
-                        if (!next_status) { 
+                        if (!next_status) {
                             this.isLike = 0;
                             this.likeAmount -= 1
                             this.isDigg = 0;
-                        } else { 
+                        } else {
                             this.isLike = 1;
                             this.likeAmount += 1;
                             this.isDigg = 1;
@@ -336,10 +339,10 @@ new Vue({
         },
         //收藏
         postCollect(action) {
-            this.loginWrapState=true;
-            setTimeout(()=>{
-               window.open(util.vars.domain+"pages/BindingNumber?sourcepath='seo'","_self");
-            },1000)
+            this.loginWrapState = true;
+            setTimeout(() => {
+                window.open(util.vars.domain + "pages/BindingNumberMid?sourcepath=seo&id=" + this.view_id, "_self");
+            }, 1000)
             // // action 1:收藏，2:点赞
             // // next_status 0代表取消 1代表点赞/收藏
             // let next_status =
@@ -400,10 +403,10 @@ new Vue({
         },
         //点击回复评论按钮
         showReplayInput(commentid) {
-            this.loginWrapState=true;
-            setTimeout(()=>{
-               window.open(util.vars.domain+"pages/BindingNumber?sourcepath='seo'","_self");
-            },1000)
+            this.loginWrapState = true;
+            setTimeout(() => {
+                window.open(util.vars.domain + "pages/BindingNumberMid?sourcepath=seo&id=" + this.view_id, "_self");
+            }, 1000)
             // this.$parent.login().then((res) => {
             //     this.replyingComment = this._findComment(commentid);
             //     this.showReplyLayer = !this.showReplyLayer;
@@ -470,10 +473,10 @@ new Vue({
         // },
         // 点击点赞评论 0:取消，1:点赞
         postCommentLike(commentid, isLike) {
-            this.loginWrapState=true;
-            setTimeout(()=>{
-               window.open(util.vars.domain+"pages/BindingNumber?sourcepath='seo'","_self");
-            },1000)
+            this.loginWrapState = true;
+            setTimeout(() => {
+                window.open(util.vars.domain + "pages/BindingNumberMid?sourcepath=seo&id=" + this.view_id, "_self");
+            }, 1000)
             // if (this.subCommentLikeSwitchState == true) {
             //     this.subCommentLikeSwitchState = false;
 
@@ -537,10 +540,10 @@ new Vue({
         },
         //点击评论文章
         clickComment() {
-            this.loginWrapState=true;
-            setTimeout(()=>{
-               window.open(util.vars.domain+"pages/BindingNumber?sourcepath='seo'","_self");
-            },1000)
+            this.loginWrapState = true;
+            setTimeout(() => {
+                window.open(util.vars.domain + "pages/BindingNumberMid?sourcepath=seo&id=" + this.view_id, "_self");
+            }, 1000)
             // this.$parent.login().then((res) => {
             //     this.showCommentLayer = !this.showCommentLayer;
             //     if (this.showCommentLayer) {
