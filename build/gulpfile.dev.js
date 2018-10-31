@@ -17,8 +17,8 @@ var Config = require('./gulpfile.config.js');
 function dev() {
 
     var jsonPlaceholderProxy = proxy('/api', {
-        target: 'http://192.168.1.222:8080',
-        // target: 'http://c.davfang.com',
+        // target: 'http://192.168.1.222:8080',
+        target: 'http://c.davfang.com',
         changeOrigin: true,
         pathRewrite: {
             '^/api': 'api'
@@ -78,11 +78,11 @@ function dev() {
     /** 
      * 合并所有js文件并做压缩处理
      */
-    gulp.task('js-concat', function () {
-        return gulp.src(Config.js.src).pipe(babel()).pipe(concat(Config.js.build_name)).pipe(gulp.dest(Config.js.dist)).pipe(rename({
-            suffix: '.min'
-        })).pipe(uglify()).pipe(gulp.dest(Config.js.dist));
-    });
+    // gulp.task('js-concat', function () {
+    //     return gulp.src(Config.js.src).pipe(babel()).pipe(concat(Config.js.build_name)).pipe(gulp.dest(Config.js.dist)).pipe(rename({
+    //         suffix: '.min'
+    //     })).pipe(uglify()).pipe(gulp.dest(Config.js.dist));
+    // });
     /** 
      * 图片处理 
      */

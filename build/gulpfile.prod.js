@@ -58,18 +58,20 @@ function prod() {
      * js处理 
      */
     gulp.task('js', function () {
-        return gulp.src(Config.js.src).pipe(babel()).pipe(gulp.dest(Config.js.dist)).pipe(rename({
-            suffix: '.min'
-        })).pipe(uglify()).pipe(gulp.dest(Config.js.dist));
+        return gulp.src(Config.js.src).pipe(babel())
+        // .pipe(rename({
+        //     suffix: '.min'
+        // }))
+        .pipe(uglify()).pipe(gulp.dest(Config.js.dist));
     });
     /** 
      * 合并所有js文件并做压缩处理
      */
-    gulp.task('js-concat', function () {
-        return gulp.src(Config.js.src).pipe(babel()).pipe(concat(Config.js.build_name)).pipe(gulp.dest(Config.js.dist)).pipe(rename({
-            suffix: '.min'
-        })).pipe(uglify()).pipe(gulp.dest(Config.js.dist));
-    });
+    // gulp.task('js-concat', function () {
+    //     return gulp.src(Config.js.src).pipe(babel()).pipe(concat(Config.js.build_name)).pipe(gulp.dest(Config.js.dist)).pipe(rename({
+    //         suffix: '.min'
+    //     })).pipe(uglify()).pipe(gulp.dest(Config.js.dist));
+    // });
     /** 
      * 图片处理 
      */
