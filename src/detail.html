@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,,maximum-scale=1.0,user-scalable=0">
-    <title>详情页</title>
-    <meta name="description" content="饭总，京房字，北京拆哪等知名房产大V联合推荐！全国值得信赖的买房指导平台，为买新房、二手房及投资房产的用户提供一对一买房建议或购房咨询" />
-    <meta name="keywords" content="V房，V房网，房产大V，饭总选房，北京买房，购房买房，房产资讯，北京房产" />
+    <title>$view_title$</title>
+    <meta name="description" content="$meta_description$" />
+    <meta name="keywords" content="$meta_keywords$" />
     <link rel="stylesheet" href="./css/style.css">
     <script src="./assets/jquery.min.js"></script>
     <script src="./assets/flexible.debug.js"></script>
@@ -17,21 +17,19 @@
 
 <body>
     <div class="body-layout" style="width: 100%" id="app">
-        <div class="hidid" >2676</div>
+        <div class="hidid" >$id$</div>
         <div>
             <header class="top-header">
                 <a class="header-left" @click="backToHome"></a>
-                <article class="header-middle">详情页</article>
+                <article class="header-middle">$view_title$</article>
             </header>
-            <!-- <div class="top-header-seize" style="width:100%;height:1.17333rem;line-height:1.17333rem;">
-            </div> -->
         </div>
         <!-- 详情 -->
         <div class="vf-detail">
             <div class="vf-detail_container">
                 <!-- 头部内容 -->
                 <div class="vf-detail_container__header">
-                    <h1 class="title" style="-webkit-box-orient:vertical;" v-if="viewDetail.view_title">{{viewDetail.view_title}}</h1>
+                    <h1 class="title" style="-webkit-box-orient:vertical;" v-if="viewDetail.view_title">$view_title$</h1>
                     <div class="header-info">
                         <div class="dvhead">
                             <img src="./images/default_user_img.png" v-if="!author.author_avatar" />
@@ -39,7 +37,7 @@
                         </div>
                         <div class="header-info_text">
                             <span @click="goLargeVipDetail">
-                                <img src="./images/icon-v.png" alt="" v-if="false">{{viewDetail.author_name}}
+                                <img src="./images/icon-v.png" alt="" v-if="false">$author_name$
                             </span>
                             <span v-if="viewDetail.publish_time">{{publishTime}}</span>
                         </div>
@@ -56,6 +54,7 @@
                 </div>
                 <!-- 文章内容 -->
                 <div class="vf-detail_container__main" v-html="view_content" ref="viewContent">
+                    $view_content$
                 </div>
 
                 <!--点赞 -->
@@ -210,26 +209,7 @@
                 </a>
             </div>
         </div>
-
-
-        <!--新增评论 弹窗-->
-        <!-- <div class="mask mask-black" @click="cancelComment" :style="{display:showCommentLayer?'block':'none' }"></div>
-        <div class="evaluate-modal" :style="{display:showCommentLayer?'block':'none'} ">
-            <div class="vf-evaluate">
-                <textarea class="textarea" ref="ta_commnetContent" placeholder="有话要说..." maxlength="500" v-model.trim="commentContent"></textarea>
-                <button type="button" class="phone-btn" @click="submitComment">提 交</button>
-            </div>
-        </div> -->
-
-        <!--新增回复弹窗 -->
-        <!-- <div class="mask mask-black" @click="cancelComment" :style="{display:showReplyLayer?'block':'none' }"></div>
-        <div class="evaluate-modal" :style="{display:showReplyLayer?'block':'none'} ">
-            <div class="vf-evaluate">
-                <textarea class="textarea" ref="ta_replyContent" :placeholder="'回复 '+replyingComment.user_name" maxlength="500" v-model.trim="replyContent"></textarea>
-                <button type="button" class="phone-btn" @click="postCommentReply">提 交</button>
-            </div>
-        </div> -->
-
+ 
         <!-- 新增浮动按钮 -->
         <div class="floatBtnToHome" @click="backToHome">
             <img src="./images/icon_tohome_btn.png">

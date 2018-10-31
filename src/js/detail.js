@@ -3,8 +3,8 @@ new Vue({
     data() {
         return {
             author: {},         //  作者详情
-            viewDetail: { view_title: '', author_name: '', label: '' },     //  观点详情
-            metaTitle: 'V房，买房指导专家，房产大V_一对一买房建议，房产知识平台',
+            viewDetail: {},     //  观点详情
+            // metaTitle: 'V房，买房指导专家，房产大V_一对一买房建议，房产知识平台',
             metaContent: '',
             previewImgList: [],  //  预览图片列表
             view_content: "",    //  观点详情详细内容
@@ -41,8 +41,7 @@ new Vue({
             subCommentSwitchState: true,//提交评论开关状态
             subCommentLikeSwitchState: true,//提交点赞功能开关状态
             subPostCommentReplyState: true,//提交回复开关状态
-            coverdivState: true,//遮罩层展示状态
-            isOwnArticle: false,//是否是大v自己的文章
+            coverdivState: true,//遮罩层展示状态 
             loginWrapState: false,//是否显示登录弹窗
         }
     }, 
@@ -60,9 +59,7 @@ new Vue({
     beforeRouteLeave(to, from, next) {
         window.removeEventListener("scroll", this.onScrollPull);//移除滚动监听 
     },
-    created() {
-        // console.log(util.vars.domain);
-        // console.log(document.referrer)
+    created() { 
         this.initData();
     },
     mounted() {
@@ -70,24 +67,7 @@ new Vue({
             window.addEventListener('scroll', this.onScrollPull);
         });
     },
-    methods: {
-        judgeIsOwnArticle() {
-            util.ajaxGet('/api/user/get').then(res => {
-                if (res) {
-                    if (res.code == '1201' || res.code == '1202') {
-                    } else {
-                        if (res.code == 1) {
-                            if (res.data.v_id == this.author_id) {
-                                this.isOwnArticle = true;
-                            }
-                            else {
-                                this.isOwnArticle = false;
-                            }
-                        }
-                    }
-                }
-            })
-        },
+    methods: { 
         goSearchPage(skeyVal) {
             window.open(util.vars.domain + 'pages/Search?skey=' + encodeURIComponent(skeyVal) + '&&isByClickKey=1', '_self')
         },
@@ -112,9 +92,8 @@ new Vue({
             }
         },
         initData(to, from) {
-            this.resetData();
-            // this.view_id = 2676;
-            this.view_id = document.querySelector(".hidid").innerText || 2676;
+            this.resetData(); 
+            this.view_id = document.querySelector(".hidid").innerText;
             this.fetchViewDetail();
             this.fetchStatistic();
             this.fetchRecommendList();
@@ -147,10 +126,9 @@ new Vue({
                     if (res.code == 1) {
                         this.coverdivState = false;
                         this.viewDetail = res.data;
-                        this.metaTitle = this.viewDetail.view_title + ' ' + this.viewDetail.author_name;
-                        this.metaContent = 'v房 ' + this.viewDetail.view_title + ' ' + this.viewDetail.author_name + ' ' + this.viewDetail.label;
-                        this.author_id = res.data.author_id;
-                        this.judgeIsOwnArticle();//判断是否是大v自己的文章
+                        // this.metaTitle = this.viewDetail.view_title + ' ' + this.viewDetail.author_name;
+                        // this.metaContent = 'v房 ' + this.viewDetail.view_title + ' ' + this.viewDetail.author_name + ' ' + this.viewDetail.label;
+                        this.author_id = res.data.author_id; 
                         this.view_content = res.data.view_content.replace(/\s\s+/g, function (text) {
                             let str = new Array(text.length + 1).join('&nbsp;');
                             return str
@@ -279,20 +257,7 @@ new Vue({
             setTimeout(() => {
                 //    window.open(util.vars.domain+"pages/BindingNumberMid?sourcepath=seo&id="+this.view_id,"_self");
                 window.open("http://192.168.1.225/pages/BindingNumberMid?sourcepath=seo&id=" + this.view_id, "_self");
-            }, 1000)
-            // // 是否关注大V
-            // this.$parent.login(4).then((res) => {
-            //     let follow_type = !this.isFollow + 0;
-            //     util.ajaxPost('/api/author/follow', util.jsonStringify({
-            //         'author_id': this.author_id,
-            //         'follow_type': follow_type
-            //     })).then((res) => {
-            //         if (res.code == 1) {
-            //             // 切换关注状态
-            //             this.isFollow = follow_type;
-            //         }
-            //     });
-            // });
+            }, 1000) 
         },
         //点赞
         postLike(action) {
@@ -342,169 +307,21 @@ new Vue({
             this.loginWrapState = true;
             setTimeout(() => {
                 window.open(util.vars.domain + "pages/BindingNumberMid?sourcepath=seo&id=" + this.view_id, "_self");
-            }, 1000)
-            // // action 1:收藏，2:点赞
-            // // next_status 0代表取消 1代表点赞/收藏
-            // let next_status =
-            //     action == 2 ?
-            //         !this.isLike + 0 :
-            //         !this.isCollect + 0;
-            // // 先验证是否登录, 收藏传参
-            // this.$parent.login(3).then((res) => {
-            //     util.ajaxPost('/api/view/change_action_status', util.jsonStringify({
-            //         'view_id': this.view_id,
-            //         'action': action,
-            //         'status': next_status
-            //     })).then((res) => {
-            //         if (res.code == 1) {
-            //             // 更新状态 点赞不需要验证登录
-            //             if (action == 2) {
-            //                 if (!next_status) {
-            //                     this.isLike = 0;
-            //                     this.likeAmount -= 1
-            //                 } else {
-            //                     this.isLike = 1;
-            //                     this.likeAmount += 1;
-            //                 }
-            //             } else if (action == 1) {
-            //                 // 全局toast 是收藏 并且 已经登录
-            //                 if (!next_status) {
-            //                     this.isCollect = 0;
-            //                     this.$toast('取消收藏', {
-            //                         duration: '1000'
-            //                     });
-            //                 } else {
-            //                     this.isCollect = 1;
-            //                     this.$toast('收藏成功', {
-            //                         duration: '1000'
-            //                     });
-            //                 }
-            //             }
-            //         }
-            //     });
-            // });
-        },
-        //在评论列表和回复列表中查找对应的评论对象
-        _findComment(commentid) {
-            let _data = null;
-            this.commentList.comment_list.forEach((item, index) => {
-                if (item.comment_id == commentid) {
-                    _data = item;
-                } else {
-                    item.reply.forEach((ritem, rindex) => {
-                        if (ritem.reply_id == commentid) {
-                            _data = ritem;
-                            _data["reply"] = item.reply;
-                        }
-                    });
-                }
-            });
-            return _data;
-        },
+            }, 1000) 
+        }, 
         //点击回复评论按钮
         showReplayInput(commentid) {
             this.loginWrapState = true;
             setTimeout(() => {
                 window.open(util.vars.domain + "pages/BindingNumberMid?sourcepath=seo&id=" + this.view_id, "_self");
             }, 1000)
-            // this.$parent.login().then((res) => {
-            //     this.replyingComment = this._findComment(commentid);
-            //     this.showReplyLayer = !this.showReplyLayer;
-            //     if (this.showReplyLayer) {
-            //         this.$nextTick(() => {
-            //             this.$refs.ta_replyContent.focus();
-            //         });
-            //     }
-            // });
-        },
-        // //提交回复
-        // postCommentReply() {
-        //     if (this.replyContent.length === 0) {
-        //         this.$toast('请填写回复内容', {
-        //             duration: '2000'
-        //         });
-        //         return;
-        //     }
-
-
-
-        //     let that = this;
-        //     if (this.replyingComment) {
-        //         if (this.subPostCommentReplyState == true) {//提交评论开关状态为true 则可以提交
-        //             this.subPostCommentReplyState = false;
-
-        //             // 回复评论 验证是否登录
-        //             this.$parent.login(2).then((res) => {
-        //                 let name = res.data.user_name;
-        //                 let userid = res.data.user_id;
-        //                 util.ajaxPost('/api/comment/replay', util.jsonStringify({
-        //                     'comment_id': this.replyingComment.comment_id || this.replyingComment.reply_id,//评论id或者回复的id
-        //                     'content': this.replyContent
-        //                 })).then((res) => {
-        //                     if (res.code == 1) {
-        //                         let reply = that.replyingComment;
-        //                         //插入到评论回复的数组头部
-        //                         reply.reply.unshift({
-        //                             user_name: name,
-        //                             content: that.replyContent,
-        //                             contentFmt: that.replyContent + ((reply.reply_id || 0) ? "//@" + reply.user_name + ":" + reply.content : ""),
-        //                             user_id: userid,
-        //                             reply: [],
-        //                             reply_id: res.data
-        //                         });
-        //                         that.commentList.total_count += 1;
-        //                     } else {
-        //                         this.$toast('提交失败,' + res.msg || "请稍后重试", {
-        //                             duration: '2000'
-        //                         });
-        //                     }
-        //                     that.showReplyLayer = !that.showReplyLayer;
-        //                     that.replyContent = "";
-
-        //                     //防止重复提交
-        //                     let tt = setTimeout(() => {
-        //                         this.subPostCommentReplyState = true;
-        //                     }, 5000)
-        //                 });
-        //             });
-        //         }
-        //     }
-
-        // },
+        }, 
         // 点击点赞评论 0:取消，1:点赞
         postCommentLike(commentid, isLike) {
             this.loginWrapState = true;
             setTimeout(() => {
                 window.open(util.vars.domain + "pages/BindingNumberMid?sourcepath=seo&id=" + this.view_id, "_self");
-            }, 1000)
-            // if (this.subCommentLikeSwitchState == true) {
-            //     this.subCommentLikeSwitchState = false;
-
-            //     let that = this;
-            //     //需要校验登录
-            //     this.$parent.login().then((res) => {
-
-            //         let comment_type = 0;
-            //         isLike ? comment_type = 0 : comment_type = 1;
-            //         util.ajaxPost('/api/comment/like', util.jsonStringify({
-            //             'comment_id': commentid,
-            //             'comment_type': comment_type
-            //         })).then((res) => {
-            //             if (res.code == 1) {
-            //                 let commentIndex = that.commentList.comment_list.findIndex(function (item) {
-            //                     return item.comment_id == commentid;
-            //                 });
-            //                 isLike ? that.commentList.comment_list[commentIndex].is_like = false : that.commentList.comment_list[commentIndex].is_like = true;
-            //                 isLike ? that.commentList.comment_list[commentIndex].like_amount-- : that.commentList.comment_list[commentIndex].like_amount++;
-            //             }
-
-            //             let tt = setTimeout(() => {
-            //                 this.subCommentLikeSwitchState = true;
-            //             }, 2000)
-            //         });
-
-            //     });
-            // }
+            }, 1000) 
         },
         //获取用户对作者的关注状态
         authFollowStatus() {
@@ -543,59 +360,9 @@ new Vue({
             this.loginWrapState = true;
             setTimeout(() => {
                 window.open(util.vars.domain + "pages/BindingNumberMid?sourcepath=seo&id=" + this.view_id, "_self");
-            }, 1000)
-            // this.$parent.login().then((res) => {
-            //     this.showCommentLayer = !this.showCommentLayer;
-            //     if (this.showCommentLayer) {
-            //         this.$nextTick(() => {
-            //             this.$refs.ta_commnetContent.focus();
-            //         });
-            //     }
-            // });
+            }, 1000) 
         },
-        // //提交评论
-        // submitComment() {
-        //     if (this.commentContent.length === 0) {
-        //         this.$toast('请填写评论内容', {
-        //             duration: '2000'
-        //         })
-        //     }
-        //     else {
-        //         if (this.subCommentSwitchState == true) {//提交评论开关状态为true 则可以提交
-        //             this.subCommentSwitchState = false;
-
-
-
-        //             let that = this;
-        //             util.ajaxPost('/api/comment/post', util.jsonStringify({
-        //                 view_id: this.view_id,
-        //                 content: this.commentContent
-        //             })).then((res) => {
-        //                 if (res.code === 1 && res.data) {
-        //                     that.commentContent = "";
-        //                     this.$toast('提交成功', {
-        //                         duration: '1000'
-        //                     });
-        //                     //更新评论列表
-        //                     that.last_id = 0;
-        //                     that.fetchCommentList();
-        //                 } else {
-        //                     this.$toast('提交失败,' + res.msg || "请稍后重试", {
-        //                         duration: '2000'
-        //                     });
-        //                 }
-        //                 //关闭输入评论弹层
-        //                 that.clickComment();
-        //                 //清空输入的内容
-        //                 this.commentContent = "";
-        //                 //防止重复提交
-        //                 let tt = setTimeout(() => {
-        //                     this.subCommentSwitchState = true;
-        //                 }, 5000)
-        //             });
-        //         }
-        //     }
-        // },
+         
         //查看其它文章详情
         goDetail(view_id) {
             window.open(util.vars.domain + 'pages/Detail?id=' + view_id, '_self')
