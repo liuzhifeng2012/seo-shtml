@@ -1,0 +1,14 @@
+//混合宏，button-size
+// 按钮样式
+@mixin button-size(
+    $background-color,
+    $color,
+    $border-radius
+){
+  @extend %inline-block;
+  background-color:$background-color;
+  color:$color;
+  border-radius:$border-radius;
+  border:none;
+  text-align:center;
+}

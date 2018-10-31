@@ -1,0 +1,14 @@
+// 混合宏，arrow
+// 用来实现空角的显示
+@mixin arrow(
+  $radian,
+  $size,
+  $borderColor
+) {
+  @extend %inline-block;
+  height: $size;
+  width: $size;
+  border-left: 2px solid #000;
+  border-bottom: 2px solid #000;
+  transform:rotate($radian);
+}

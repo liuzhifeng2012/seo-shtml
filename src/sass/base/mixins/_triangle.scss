@@ -1,0 +1,36 @@
+// ------------------------------------------
+// 混合宏，triangle
+// 用来实现三角形的显示
+// $direction: 实心三角的朝向
+// $size:实心三角的高(宽)
+// $borderColor:实心三角的颜色
+// ------------------------------------------
+@mixin triangle(
+  $direction,
+  $size,
+  $borderColor
+) {
+  height: 0;
+  width: 0;
+  overflow:hidden;
+  @if ($direction == top) {
+    border-bottom:$size solid $borderColor;
+    border-left:$size dashed transparent;
+    border-right:$size dashed transparent;
+  }
+  @else if ($direction == right) {
+    border-left:$size solid $borderColor;
+    border-top:$size dashed transparent;
+    border-bottom:$size dashed transparent;
+  }
+  @else if ($direction == bottom) {
+    border-top:$size solid $borderColor;
+    border-left:$size dashed transparent;
+    border-right:$size dashed transparent;
+  }
+  @else if ($direction == left) {
+    border-right:$size solid $borderColor;
+    border-top:$size dashed transparent;
+    border-bottom:$size dashed transparent;
+  }
+}

@@ -1,0 +1,22 @@
+// 混合宏，halfborder
+// 用来实现移动端1px边框
+
+@mixin halfborder(){
+	position: relative;
+	&:before{
+		content: '';
+	    position:absolute;
+	    top:-50%;
+	    right:-50%;
+	    bottom:-50%;
+	    left:-50%;
+	    @media (-webkit-min-device-pixel-ratio:1.5),(min-device-pixel-ratio:1.5){
+			-webkit-transform:scale(0.7);
+	    	transform:scale(0.7);
+	    }
+	    @media (-webkit-min-device-pixel-ratio:2),(min-device-pixel-ratio:2){
+			-webkit-transform:scale(0.5);
+	    	transform:scale(0.5);
+	    }
+	}
+}

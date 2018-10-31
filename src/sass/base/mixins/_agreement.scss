@@ -1,0 +1,45 @@
+// agreement 混合宏
+// 提供用户协议所有样式
+
+@mixin agreement() {
+	.agreement{
+		font-size:$fs28;
+		color:$lux-tit-text;
+		margin:0 25px;
+		padding:15px 0;
+		overflow: hidden;
+		// 协议标题
+		&-title{
+			width: 100%;
+			font-size: $fs32;
+			font-weight: 600;
+			color:$lux-list-title;
+			@include block-height(22px);
+			padding:22px 0 12px 0;
+			text-align:center;
+		}
+		// 段落
+		&-p{
+			line-height:24px;
+			margin-top:6px;
+			text-indent:2em;
+		}
+		// 带有标题样式使用dl
+		&-dl{
+			width: 100%;
+			margin-top: 10px;
+			text-indent:2em;
+			overflow: hidden;
+			dt{
+				font-size: $fs32;
+				@include block-height(22px);
+				margin-bottom: 9px;
+				font-weight: 600;
+			}
+			dd{
+				font-size: $fs28;
+				line-height: 22px;
+			}
+		}
+	}
+}

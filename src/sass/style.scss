@@ -1,0 +1,27 @@
+                                                                             
+// 变量
+@import "base/variables";  //用来定义相关变量
+
+//占位符
+@import "base/placeholder";  //提供所有的占位符
+       
+// 组件
+@import "base/components/body-layout"; //body外部布局
+@import "base/components/header"; //提供所有头部样式
+@import "base/components/area"; //提供所有头部样式
+@import "base/components/body-content"; //提供body样式
+@import "base/components/footer"; //footers
+@import "base/components/body-nav"; //bodynav
+@import "base/components/pop"; //弹出层
+
+// 混合宏           
+@import "base/mixins";  //提供所有普通的混合宏
+
+// 样式表重置&公用样式
+@import "base/reset/normalize";  //用来定义重置样式规范
+@import "base/reset/utilities";  //提供一些公共的经常用到的样式
+
+//所有样式
+@import "base/main";  //提供所有页面样式
+          
+           

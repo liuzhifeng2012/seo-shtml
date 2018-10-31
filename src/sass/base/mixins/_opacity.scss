@@ -1,0 +1,7 @@
+//混合宏， Opacity
+//设置透明样式
+@mixin opacity(
+    $opacity
+) {
+  opacity: $opacity;
+}

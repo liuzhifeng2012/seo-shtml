@@ -1,0 +1,66 @@
+//-----------------------------------------------------
+// pop.scss
+// 定义弹出层的样式
+//-----------------------------------------------------
+
+@mixin popbottom(
+	$bottonheiht
+	){
+	position: fixed;
+	bottom:$bottonheiht;
+	left:0;
+	z-index:12000;
+	width: 100%;
+	background:$colorWhite;
+	.pop-header{
+		height:50px;
+		line-height: 50px;
+		text-align: center;
+		font-size: $fs36;
+		color:$gray-dark;
+		border-bottom: 1px solid $borderColor;
+		p{
+			padding:0 15px;
+			font-size: $fs32;
+			color:$gray;
+			text-align: left;
+			em{
+				float: right;
+			}
+		}
+	}
+	.pop-content{
+		margin:10px 0;
+		max-height: 4.8rem;
+		overflow-x: hidden;
+		overflow-y: auto;
+		&.ask-txt_list{
+			width: 100%;
+			ul{
+				width: 95%;
+				height: auto;
+				margin:0 auto;
+				li{
+					font-size: $fs32;
+					color:$gray;
+					line-height: 0.533333rem;
+					text-align: center;
+					border-bottom: 1px solid $borderColor;
+					padding-bottom:0.2rem;
+					margin:0.2rem 0;
+				}
+			}
+		}	
+	}
+	.pop-close{
+		position: absolute;
+		top: 17px;
+		right: 17px;
+		width: 16px;
+		height: 16px;
+		img{
+			width: 100%;
+			float: right;
+		}
+	}
+}

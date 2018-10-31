@@ -1,0 +1,51 @@
+// ------------------------------------------
+// 混合宏，cricleclose
+// 用来实现空角的显示
+// $quickerenterBgcolor:快速入口的高度
+// $quickerenterBgcolor:快速入口的颜色
+// $quickerenterNumber:分类个数
+// $quickerenterFontsize: 字体大小
+// $quickerenterColose:字体颜色
+// $quickerenterImgWidth:分类icon的宽度
+// $quickerenterImgHeight：分类icon的高度
+// ------------------------------------------
+@mixin quickenter(
+  $quickerenterHeight,
+  $quickerenterBgcolor,
+  $quickerenterNumber,
+  $quickerenterFontsize,
+  $quickerenterColose,
+  $quickerenterImgWidth,
+  $quickerenterImgHeight
+) {
+  width: 100%;
+  height: $quickerenterHeight;
+  background:$quickerenterBgcolor;
+  ul{
+    width: 100%;
+    overflow: hidden;
+    li{
+      width: 100% / $quickerenterNumber;
+      float: left;
+      box-sizing:border-box;
+      a{
+        font-size: $quickerenterFontsize;
+        color:$quickerenterColose;
+        text-decoration: none;
+        &:hover{
+          text-decoration: none;
+        }
+        img{
+          display: block;
+          width: $quickerenterImgWidth;
+          height: $quickerenterImgHeight;
+          margin: ( ( $quickerenterHeight - $quickerenterImgHeight - ( $quickerenterFontsize + 2px ) ) / 2 ) auto 0;
+        }
+        p{
+          @include block-height( $quickerenterFontsize + 2px );
+          text-align: center;
+        }
+      }
+    }
+  }
+}

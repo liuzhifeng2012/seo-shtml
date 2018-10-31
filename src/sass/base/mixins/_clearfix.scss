@@ -1,0 +1,13 @@
+//混合宏 clearfix
+//清除浮动方法
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}

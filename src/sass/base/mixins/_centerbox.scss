@@ -1,0 +1,35 @@
+// ------------------------------------------
+// 混合宏，centerbox
+// 纯css实现上下左右居中/无定位/适应性强/兼容ie8
+// $center-place: 两个值block/inline-block,默认值是inline-block;
+// $text-page:居中方式，默认是居中
+// ------------------------------------------
+
+@mixin centerbox (
+	$center-place:inline-block,
+	$height:auto,
+	$text-page:center
+){
+	.center-box{
+	    writing-mode: tb-lr;
+	    writing-mode: vertical-lr;
+	    text-align: center;
+	    &.center-box_size{
+	    	width: 100%;
+	    	height: $height;
+	    }
+	    .center-wrap{
+		    writing-mode: lr-tb;
+		    writing-mode: horizontal-tb;
+		    text-align: center;
+		    width: 100%;
+		    display: $center-place;
+		    .center-content{
+			    text-align: $text-page;
+			    div{
+			    	display: inline-block;
+			    }
+			}
+		}
+	}
+}

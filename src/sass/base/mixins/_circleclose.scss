@@ -1,0 +1,50 @@
+// ------------------------------------------
+// 混合宏，cricleclose
+// 用来实现空角的显示
+// $close-width-height:关闭按钮大小
+// $backgroundColor:关闭按钮颜色
+// $close-height:关闭icon的粗细程度
+// $close-background: icon的颜色
+// ------------------------------------------
+@mixin circleclose(
+  $close-width-height,
+  $backgroundColor,
+  $close-height,
+  $close-background
+) {
+  @extend %absolute;
+  top: -($close-width-height / 2);
+  right: -($close-width-height / 2);
+  width: $close-width-height;
+  height: $close-width-height;
+  border-radius: 50%;
+  background: $backgroundColor;
+  &:before{
+  		content: '';
+  		@extend %absolute;
+  		top: 0;
+  		left: 0;
+  		bottom: 0;
+  		right: 0;
+  		margin: auto;
+  		width: $close-width-height - 6;
+  		height: $close-height;
+  		background:$close-background;
+  		transform: rotate(-50deg);
+  		transform-origin: center center;
+  	}
+  	&:after{
+  		content: '';
+  		@extend %absolute;
+  		top: 0;
+  		left: 0;
+  		bottom: 0;
+  		right: 0;
+  		margin: auto;
+  		width: $close-width-height - 6;
+  		height: $close-height;
+  		background:$close-background;
+  		transform: rotate(50deg);
+  		transform-origin: center center;
+  	}
+}

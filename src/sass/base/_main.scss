@@ -1,0 +1,69 @@
+//-----------------------------------------------------
+// main scss
+// 提供所有页面样式
+//-----------------------------------------------------
+
+// body布局
+html,body{
+	height:100%;
+	background:$bodyBgColor;
+}
+.body-layout{
+	@include body-layout(100%);
+}
+
+// 头部
+.top-header{
+	@include header($navHeight);
+}
+
+// body上下距离
+.marginTop48{
+	@include contentbody(48px);
+	overflow:hidden;
+}
+.marginTop44{
+    @include contentbody(44px);
+    overflow:hidden;
+}
+// 区域标题
+%area-bg{
+	width: 100%;
+	background:$colorWhite;
+	overflow: hidden;
+}
+.none{
+	display:none;
+}
+//遮罩层
+.mask{
+  position: fixed;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  display: none;
+  z-index:12000;
+  background-color:rgba(0,0,0,.8);
+}
+// input的placeholder字体颜色
+input::-webkit-input-placeholder, 
+textarea::-webkit-input-placeholder {
+　　color: #AFB0B6 !important;
+	font-size: $fs28;
+}
+input.ulNormalRInput[type="text"]:disabled{
+	background:#fff !important;
+	color: #333 !important;
+	-webkit-text-fill-color:#333;  
+    -webkit-opacity:1;  
+    opacity: 1;
+}
+// 清除浮动
+.clearfix{
+	@include clearfix();
+}
+//独立部分
+@import "independent/vhouse"; 
+@import "independent/detail"; 
+

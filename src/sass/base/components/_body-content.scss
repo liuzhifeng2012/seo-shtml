@@ -1,0 +1,12 @@
+//-----------------------------------------------------
+// body-content scss
+// 提供页面body的样式
+//-----------------------------------------------------
+
+@mixin contentbody(
+	$marginTop
+){
+	width: 100%;
+	height: auto;
+	margin-top: $marginTop;
+}

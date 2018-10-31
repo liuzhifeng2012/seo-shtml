@@ -1,0 +1,41 @@
+//-----------------------------------------------------
+// mixins scss
+// 提供所有普通的混合宏
+//-----------------------------------------------------
+
+//公用的
+@import "mixins/opacity";       //设置透明度
+@import "mixins/image";         //自适应图片大小 和 背景图片设置
+@import "mixins/size";          //设置块区域高宽
+@import "mixins/tab-focus";     //焦点样式
+@import "mixins/block-height";  //集中设置height和line-height
+
+//组件的
+@import "mixins/buttons";       //设置按钮公共样式
+@import "mixins/triangle";      //设置三角形样式
+@import "mixins/arrow";  //设置箭头
+@import "mixins/gradient-line";  //设置带有圆点走动的渐变效果
+@import "mixins/flex";  //设置flex水平对齐
+@import "mixins/search-input";  //搜索框
+@import "mixins/circleclose";  //圆形关闭按钮
+@import "mixins/quickenter";  //快速入口
+@import "mixins/flexbox";  //display：flex
+@import "mixins/halfborder";  //移动端1px解决
+@import "mixins/linearGradient";  //字体渐变
+@import "mixins/agreement";  //协议/服务条款
+@import "mixins/button";  //按钮个数
+
+//皮肤的
+@import "mixins/border-radius"; //设置各种单个方向上的border-radius
+@import "mixins/gradients";     //设置渐变
+
+//布局的
+@import "mixins/clearfix";      //清除浮动的
+@import "mixins/nav-vertical-align";    //设置垂直居中
+
+// 元素居中
+@import "mixins/centerbox";  //writing-model方式居中
+
+
+
+

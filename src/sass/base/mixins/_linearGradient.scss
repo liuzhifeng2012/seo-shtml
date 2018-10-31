@@ -1,0 +1,17 @@
+// linearGradient 渐变颜色
+// $boolean为true:字体颜色渐变
+// $boolean为flase:背景颜色渐变
+@mixin linearGradient(
+	$boolean:true
+) {
+	@if $boolean {
+		background-image: -webkit-linear-gradient(left, #CC9933, #CC9933, #CC9933);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		text-fill-color: transparent;
+	}
+	@else{
+		background-image: -webkit-linear-gradient(left, #CC9933, #CC9933, #CC9933);
+	}
+}

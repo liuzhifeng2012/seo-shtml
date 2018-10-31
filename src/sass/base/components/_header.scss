@@ -1,0 +1,409 @@
+//-----------------------------------------------------
+// header scss
+// 提供所有头部样式
+//-----------------------------------------------------
+
+// header样式
+
+@mixin header(
+	$height
+){
+	position:fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	max-width:12.4rem;
+	right:0;
+	margin:0 auto;
+	@include  block-height($height);
+	background:$colorWhite;
+	color:#000;
+	font-size:$navFontsize;
+	text-align:center;
+	border-bottom: 1px solid $borderColor;
+	z-index:1000;
+	.logo{
+		position: absolute;
+		top: 50%;
+		left: 13px;
+		width: 100%;
+		height: 38px;
+		margin-top:-19px; 
+		img{
+			display: block;
+			height: 38px;
+		}
+
+	}
+	// 左侧
+	@at-root a.header-left{
+		@extend %absolute;
+		padding: 0 6px;
+		height: $navHeight;
+		overflow: hidden;
+		left: $fs22;
+		top: 0;
+		color: $colorWhite;
+		&.arrow-white{
+			&:before{
+				content: '';
+				@include arrow(45deg,10px,#fff);
+
+			}
+		}
+		&:before{
+			content: '';
+			@include arrow(45deg,10px,#333);
+
+		}
+	}
+	// 中间
+	@at-root .header-middle{
+		width:100%;
+        height: $navHeight;
+        display:inline-block;
+        overflow: hidden;
+        font-size: $fs36;
+        a{
+        	float: right;
+        	padding-right:15px;
+        	font-size: $fs30;
+        	color:$colorWhite;
+        	font-weight: 600;
+        }
+        span{
+        	font-size: $fs36;
+	        height: 32px;
+	        line-height: 32px;
+	        color: $colorWhite;
+	        margin-left: 0.133333rem;
+	        overflow: hidden;
+        }
+        img{
+			//margin-top: -0.1333rem;
+			margin-top:0;
+            width: 1.6rem;
+            height: 0.56rem;
+        }
+	}
+	//中间 v1.5
+	@at-root .header-middle-v15 {
+		width: 100%;
+		height: 44px;
+		overflow: hidden;
+		font-size: 0.48rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-left: 15px;
+		padding-right: 15px;
+		box-sizing: border-box;
+		img{
+			//margin-top: -0.1333rem;
+			margin-top:-2px;
+			width: 1.6rem;
+			height: 0.56rem;
+		}
+		.header-lefticon{
+			height: 8px;
+			width:8px; 
+			border-left: 2px solid #000;
+			border-bottom: 2px solid #000;
+			-webkit-transform: rotate(45deg);
+			transform: rotate(45deg);
+		}
+		.scrollbox{
+		  width:235px; 
+		  overflow: hidden;
+		  display: flex;
+		  .hRecommendAnimate{//横向动画
+			 height:20px;
+			 line-height:20px;
+			 white-space: nowrap;
+			 display: inline-block;
+			 font-size:13px;
+			 animation: wordsloop 30s linear infinite normal;
+			 em{
+			   color:#FF8300;
+			   margin:0 4px;
+			 }
+		  }
+		  .hRecommendAnimate:hover{
+			  animation-play-state: paused;
+		  }
+		  @keyframes wordsloop {
+			  0%{
+				   transform: translateX(200px); 
+				  -webkit-transform:translateX(200px);  
+			  }
+			  100%{
+				   transform: translateX(-100%); 
+				  -webkit-transform:translateX(-100%); 
+			  }
+		  }
+		  @-webkit-keyframes wordsloop{
+			  0%{
+				   transform: translateX(200px); 
+				  -webkit-transform:translateX(200px);  
+			  }
+			  100%{
+				   transform: translateX(-100%); 
+				  -webkit-transform:translateX(-100%); 
+			  }
+		  }
+
+		  .zRecommendAnimate{//纵向动画
+			  width:100%;
+			  height:30px;
+			  line-height:30px;
+			  font-size:13px;
+			  animation: zwordsloop 30s linear  infinite normal;
+			  p{
+				  height:30px;
+				  overflow: hidden;
+				  text-overflow: ellipsis;
+				  white-space: nowrap;
+				  width:100%;
+				  text-align: center;
+			  }
+		  }
+		  .zRecommendAnimate:hover{
+			  animation-play-state: paused;
+		  }
+		  @keyframes zwordsloop {
+			  0%{
+				  transform: translateY(0);
+				  -webkit-transform:translateY(0)
+			  }
+			  10%{
+				  transform: translateY(-30px);
+				  -webkit-transform:translateY(-30px)
+			  }
+			  20%{
+				  transform: translateY(-60px);
+				  -webkit-transform:translateY(-60px)
+			  }
+			  30%{
+				  transform: translateY(-90px);
+				  -webkit-transform:translateY(-90px)
+			  }
+			  40%{
+				  transform: translateY(-120px);
+				  -webkit-transform:translateY(-120px)
+			  }
+			  50%{
+				  transform: translateY(-150px);
+				  -webkit-transform:translateY(-150px)
+			  }
+			  60%{
+				  transform: translateY(-180px);
+				  -webkit-transform:translateY(-180px)
+			  }
+			  70%{
+				  transform: translateY(-210px);
+				  -webkit-transform:translateY(-210px)
+			  }
+			  80%{
+				  transform: translateY(-240px);
+				  -webkit-transform:translateY(-240px)
+			  }
+			  90%{
+				  transform: translateY(-270px);
+				  -webkit-transform:translateY(-270px)
+			  }
+			  100%{
+				  transform: translateY(-300px);
+				  -webkit-transform:translateY(-300px)
+			  }
+              
+		  }
+		  @-webkit-keyframes zwordsloop {
+			  0%{
+				  transform: translateY(0);
+				  -webkit-transform:translateY(0)
+			  }
+			  10%{
+				  transform: translateY(-30px);
+				  -webkit-transform:translateY(-30px)
+			  }
+			  20%{
+				  transform: translateY(-60px);
+				  -webkit-transform:translateY(-60px)
+			  }
+			  30%{
+				  transform: translateY(-90px);
+				  -webkit-transform:translateY(-90px)
+			  }
+			  40%{
+				  transform: translateY(-120px);
+				  -webkit-transform:translateY(-120px)
+			  }
+			  50%{
+				  transform: translateY(-150px);
+				  -webkit-transform:translateY(-150px)
+			  }
+			  60%{
+				  transform: translateY(-180px);
+				  -webkit-transform:translateY(-180px)
+			  }
+			  70%{
+				  transform: translateY(-210px);
+				  -webkit-transform:translateY(-210px)
+			  }
+			  80%{
+				  transform: translateY(-240px);
+				  -webkit-transform:translateY(-240px)
+			  }
+			  90%{
+				  transform: translateY(-270px);
+				  -webkit-transform:translateY(-270px)
+			  }
+			  100%{
+				  transform: translateY(-300px);
+				  -webkit-transform:translateY(-300px)
+			  }
+              
+		  }
+		}
+		.bigWidth{
+			width:320px;
+		}
+		@media screen and (min-width: 667px) {
+		   .scrollbox{
+			   width: 8rem;
+		   }
+		   .bigWidth{
+			   width:11rem;
+		   }
+		}
+	}
+	//中间 v1.4.3	
+	.header-middle-143 {
+		width: 100%;
+		height: 44px;
+		overflow: hidden;
+		font-size: 0.48rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-left: 15px;
+		box-sizing: border-box;
+		img{
+			//margin-top: -0.1333rem;
+			margin-top:-2px;
+            width: 1.6rem;
+            height: 0.56rem;
+        }
+		.searchbox {
+			display: inline-block;
+			margin-right: 0.4rem;
+			background: #f4f5f6; 
+			border-radius: 100px;
+			width: 260px;
+			height: 32px;
+			line-height: 32px;
+			box-sizing: border-box;
+			font-size: 13px;
+			color: #888888;
+		  .searchicon1 { 
+			font-size: 14px;
+            margin-right: 0px;
+		  }
+		  .searchicon2{
+			width:20px;
+			height:20px;
+			margin-top: -4px;
+		  }
+			@media screen and (min-width:667px){
+			.searchicon2{ 
+				margin-top: 0;
+				}
+		  }
+		  .searchVal {
+			float: left;
+			margin-left: 12px;
+			height: 32px;
+			background: #f4f5f6;
+			border: 0 solid #e8e8e8;
+			border-radius: 100px; 
+			width: 4rem;
+			font-size: 13px;
+			line-height: 32px;
+		  }
+		}
+		@media screen and (min-width: 667px) {
+		  .searchbox {
+			width: 8rem;
+		  }
+		}
+	}
+	// 搜索
+	@at-root .header-middle_search{
+		width:100%;
+        display:inline-block;
+        overflow: hidden;
+		@include search-input();
+	}
+	// 右侧
+	@at-root .header-right{
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 40%;
+		height: $navHeight;
+        overflow: hidden;
+        a{
+        	color:$gray-dark;
+        	text-decoration: none;
+        	&:hover{
+        		text-decoration: none;
+        	}
+        }
+        .header-right_icon{
+			@extend %absolute;
+	        right:$fs22;
+	        top:0;
+	        color:$colorWhite;
+	        span{
+	        	position: relative;
+	        	float: left;
+	        	padding:0 6px;
+	        	&.message{
+	        		img{
+	        			width: 18px;
+	        			height: 14px;
+	        		}
+	        		.prompt{
+		        		@extend %absolute;
+		        		top: 16px;
+		        		right: 2px;
+		        		width:7px;
+		        		height: 7px;
+		        		background:#FF0036;
+		        		border-radius:50%;
+		        	}
+	        	}
+	        	img{
+	        		width: 18px;
+	        		height: 18px;
+	        	}
+	        }
+	        &:first-child{
+	        	.prompt{
+	        		@extend %absolute;
+	        		top: 10px;
+	        		right: 0;
+	        		width:10px;
+	        		height: 10px;
+	        		background:#FF0036;
+	        		border-radius:50%;
+	        	}
+	        }
+	        &:last-child{
+	        	img{
+	        		margin-left: 18px;
+	        	}
+	        }
+        }
+	}
+}

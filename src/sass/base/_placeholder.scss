@@ -1,0 +1,77 @@
+//-----------------------------------------------------
+// placeholder scss
+// 提供所有的占位符
+//-----------------------------------------------------
+
+//占位符，定位absolute
+%absolute{
+    position:absolute;
+}
+
+//占位符，定位relative
+%relative{
+    position:relative;
+}
+
+//占位符，定位absolute
+%absolute{
+    position:absolute;
+}
+
+//占位符，display:flex
+%flex{
+    display:flex;
+}
+
+//占位符，display:block
+%block{
+    display:block;
+}
+
+//占位符，display:inline
+%inline-block{
+    display:inline-block;
+}
+
+//占位符，display:none
+%display-none{
+    display:none;
+}
+
+//占位符，float:left
+%fl{
+    float:left;
+}
+
+//占位符，float:right
+%fr{
+    float:right;
+}
+
+//占位符，通过margin：0 auto;使块元素居中
+%margin-center{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+//占位符，box-sizing:border-box;
+%box-sizing-border{
+    box-sizing:border-box;
+}
+
+//占位符，vertical-align:middle;
+%vertical-middle{
+    vertical-align:middle;
+}
+
+//占位符，超出省略号
+%text-overflow{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+
+
+

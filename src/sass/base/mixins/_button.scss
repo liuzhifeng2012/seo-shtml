@@ -1,0 +1,36 @@
+// button 混合宏
+// 分别提供不同状态按钮的个数
+
+@mixin buttonnumber ($boolean:true) {
+	@if $boolean {
+		a{
+			font-size: $fs32;
+			text-align: center;
+			@include block-height(40px);
+			border-radius: 20px;
+			&:nth-child(1){
+				@include flex(0,0,35%);
+				background: $colorWhite;
+				color: $lux-list-title;
+				box-shadow: 0 2px 5px 0 #DCDCDC;
+			}
+			&:nth-child(2){
+				@include flex(0,0,60%);
+				@include linearGradient(false);
+				color: $colorWhite;
+				aligh-items:flex-end;
+			}
+		}
+	}
+	@else {
+		a{
+			font-size: $fs32;
+			text-align: center;
+			@include block-height(40px);
+			border-radius: 20px;
+			@include flex(0,0,100%);
+			@include linearGradient(false);
+			color: $colorWhite;
+		}
+	}	
+}

@@ -1,0 +1,16 @@
+// 混合宏，search-input
+// 搜索框
+@mixin search-input(
+
+) {
+  width: 70%;
+  padding:0 10px;
+  height:30px;
+  background-color:$colorWhite;
+  border-radius:30px;
+  overflow:hidden;
+  border: 1px solid $borderColor;
+  font-size: 0.373333rem;
+  color:$gray-dark;
+  margin-left: 5%;
+}

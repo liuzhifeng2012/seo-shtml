@@ -1,0 +1,16 @@
+//混合宏，size square
+// 设置块狂傲
+
+@mixin size(
+    $width,
+    $height
+) {
+  width: $width;
+  height: $height;
+}
+
+@mixin square(
+    $size
+) {
+  @include size($size, $size);
+}

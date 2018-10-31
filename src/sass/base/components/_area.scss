@@ -1,0 +1,15 @@
+//-----------------------------------------------------
+// area scss
+// 提供区域标题样式
+//-----------------------------------------------------
+
+@mixin area-title(
+	$height
+){
+	width:100%;
+	@include block-height($height);
+	color: $gray-dark;
+	font-size:$navFontsize;
+	background:$colorWhite;
+	font-weight:600;
+}

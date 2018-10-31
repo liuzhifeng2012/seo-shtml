@@ -1,0 +1,108 @@
+//variables.scss
+//用来定义相关变量
+//-----------------------------------------------------
+
+//
+//主颜色
+//
+$mainColor:            #FF2C00;
+
+//
+//颜色
+//
+$gray-base:              #000 !default;
+$gray-darker:            #222 !default;
+$gray-dark:              #333 !default;
+$gray:                   #666 !default;
+$gray-light:             #999 !default;
+$gray-lighter:           #eee !default;
+$gray-lightest:          #ccc !default;
+$colorWhite:			 #fff !default;
+//--------------
+// 针对Vfang定义的基础变量
+//--------------
+$vfTitleColor:			#181818  !default;
+$vfTextColor:			#888888  !default;
+$vfUserpColor:			#FF8300  !default;
+$vfLoginMoreTColor:		#888888  !default;
+//--------------
+//背景颜色
+//--------------
+$bodyBgColor:            $colorWhite !default;
+
+//
+//边框颜色
+//
+$borderColor:             #e9e9e9 !default;
+
+//
+// radius
+//
+$base-Radius:            6px !default;
+$small-Radius:           2px !default;
+$middle-radius:             4px !default;
+
+//
+//rem
+//
+$fs20:                   0.266667rem;   //20px
+$fs22:                   0.293333rem;   //22px
+$fs24:                   0.32rem;   //24px
+$fs26:                   0.346667rem;   //26px
+$fs28:                   0.373333rem;   //28px
+$fs30:                   0.4rem;        //30px
+$fs32:                   0.426667rem;   //32px
+$fs34:                   0.453333rem;   //34px
+$fs36:                   0.48rem;        //36px
+$fs38:                   0.506666rem;        //36px
+$fs40:                   0.533333rem;   //40px
+$fs42:                   0.56rem;   //42px
+$fs44:                   0.586667rem;   //44px
+$fs48:                   0.64rem;   //48px
+$fs60:                   0.8rem;        //60px
+$fs64:                   0.853333rem;   //64px
+$fs160:                  2.133333rem;   //160px;
+
+//
+//宽+高
+//
+$standard88:               1.173333rem;   //88px
+$size5:                    0.066667rem;   //5px
+$size10:                   0.133333rem;   //10px
+$size15:                   0.2rem;        //15px
+$size20:                   0.266667rem;   //20px
+$size25:                   0.333333rem;   //25px
+$size28:                   0.373333rem;   //28px
+$size32:                   0.426667rem;   //32px
+$size30:                   0.4rem;        //30px
+$size34:                   0.453333rem;   //34px
+$size38:                   0.506667rem;   //38px
+$size42:                   0.56rem;        //42px
+$size45:                   0.6rem;        //45px
+$size50:                   0.666667rem;   //50px
+$size56:                   0.746667rem;   //56px
+$size100:                  1.333333rem;   //100px
+$size120:                  1.6rem;   //120px
+$size150:                  2.0rem;        //150px
+$size200:                  2.666667rem;   //200px
+$size420:                  5.6rem;        //420px
+$size692:                  9.226667rem;   //692px
+$size750:                  750px;       //750px
+
+//-----------------------------------------------------
+//地址
+// #{}进行引用
+//-----------------------------------------------------
+$imgUrl:                 "../../images/";
+
+//-----------------------------------------------------
+//边框
+//-----------------------------------------------------
+$border-all:1px solid $borderColor;
+
+//-----------------------------------------------------
+// 顶部导航基础数据
+//-----------------------------------------------------
+
+$navHeight:						44px;
+$navFontsize:					16px;

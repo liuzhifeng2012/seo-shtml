@@ -1,0 +1,35 @@
+//-----------------------------------------------------
+// body-nav scss
+// 提供页面中导航的样式
+//-----------------------------------------------------
+
+@mixin body-nav(
+	$number
+){
+	position: fixed;
+	top:45px;
+	left:0;
+	width: 100%;
+    height: 42px;
+    background: $colorWhite; 
+    z-index: 10000;
+    span{
+    	float: left;
+    	display: block;
+    	text-align: center;
+    	box-sizing:border-box;
+    	width: (100% / $number);
+        color:$gray-light;
+        font-size: 14px;
+        height: 34px;
+        line-height: 34px;
+        padding:4px 0;
+        em{
+        	padding-bottom: 10px;
+        	&.border-black{
+        		color:$gray-dark !important;
+        		border-bottom: 2px solid $gray-dark;
+        	}
+        } 
+    }
+}

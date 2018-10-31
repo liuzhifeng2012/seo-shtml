@@ -1,0 +1,10 @@
+//混合宏，vertical-align
+//设置垂直居中
+
+@mixin vertical-align(
+    $navbar-height,
+    $element-height
+) {
+  margin-top: (($navbar-height - $element-height) / 2);
+  margin-bottom: (($navbar-height - $element-height) / 2);
+}

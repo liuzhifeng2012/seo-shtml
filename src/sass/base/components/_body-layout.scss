@@ -1,0 +1,39 @@
+//-----------------------------------------------------
+// body-layout scss
+// body外部布局
+//-----------------------------------------------------
+
+// body整体布局
+@mixin body-layout(
+	$width
+	){
+	@extend %absolute;
+	width:$width;
+    max-width: 12.4rem;
+    position: relative;
+    margin:0 auto;
+	// left:50%;
+	// top:0;
+	// right:0;
+	// bottom:0;
+	// margin-left:-50%;
+	background-color:$bodyBgColor;
+}
+
+//body除去header的布局内容
+%body-content{
+    @extend %absolute;
+    left: 0;
+    right: 0;
+    overflow: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling:touch;
+}
+@mixin body-content(
+    $top,
+    $bottom
+){
+    @extend %body-content;
+    top:$top;
+    bottom:$bottom;
+}

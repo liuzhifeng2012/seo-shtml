@@ -1,0 +1,24 @@
+// 响应 image
+//保证图像缩放不能超出他们的父级的宽度。
+@mixin img-responsive(
+    $display: block
+) {
+  display: $display;
+  max-width: 100%;
+  height: auto;
+}
+
+//背景 "图片、重复、大小"
+@mixin Bground(
+    $image,
+    $repeat,
+    $size
+){
+  background:{
+        image:url($imgUrl+$image);
+        repeat:$repeat;
+        size:$size;
+  }
+}
+
+

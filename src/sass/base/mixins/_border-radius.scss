@@ -1,0 +1,70 @@
+//混合宏，border-radius scss
+//提供只有一个方向的border-radius
+
+@mixin border-radius(
+  $radius:null
+  ){
+  border-radius: $radius;
+}
+
+@mixin border-top-radius(
+    $radius
+) {
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+}
+@mixin border-right-radius(
+    $radius
+) {
+  border-bottom-right-radius: $radius;
+     border-top-right-radius: $radius;
+}
+@mixin border-bottom-radius(
+    $radius
+) {
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+@mixin border-left-radius(
+    $radius
+) {
+  border-bottom-left-radius: $radius;
+     border-top-left-radius: $radius;
+}
+//上半圆
+@mixin top_half_cir(
+  $radius:null
+  )
+{
+  border-radius: $radius $radius 0 0; 
+}
+//下半圆
+@mixin bottom_half_cir(
+  $radius:null
+  )
+{
+  border-radius: 0 0 $radius $radius ; 
+}
+//右半圆
+@mixin right_half_cir(
+  $radius:null
+  )
+{
+  border-radius: 0 $radius $radius  0 ; 
+}
+//左半圆
+@mixin right_half_cir(
+  $radius:null
+  )
+{
+  border-radius: $radius 0  0 $radius; 
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+// 混合宏，flex
+// 用来flex水平对齐
+@mixin flex(
+  $flex-num
+) {
+    @extend %flex;
+    li{
+      flex:1;
+    }
+}

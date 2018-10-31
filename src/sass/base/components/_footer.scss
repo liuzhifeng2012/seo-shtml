@@ -1,0 +1,98 @@
+//-----------------------------------------------------
+// footer scss
+// 提供footer样式
+//-----------------------------------------------------
+
+@mixin footer-three(
+	$bgcolor,
+	$footerheight,
+	$beforewidth,
+	$afterwidth
+){
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index:12000;
+	display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+	width: 100%;
+	height:$footerheight;
+	border-top: 1px solid $borderColor;
+	background:$bgcolor;
+	box-sizing:border-box;
+	.footer-cell{
+		flex: 0 0 $beforewidth;
+		background: $colorWhite;
+		border-right:1px solid $borderColor;
+		box-sizing:border-box;
+		p.choosenumber{
+			font-size: $fs28;
+			color: $gray-dark;
+			line-height: $footerheight;
+			em{
+				color: $main-color;
+			}
+		}
+		&.border-right-none{
+			border-right:none;
+		}
+		img{
+			width: 20px;
+			height: 20px;
+			margin:6px auto;
+			display: block;
+		}
+		p{
+			color:$gray;
+			font-size: $fs20;
+			text-align: center;
+		}
+	}
+	.right_btn{
+		flex: 0 0 $afterwidth;
+		a{
+			width: 100%;
+			height: $footerheight;
+			line-height: $footerheight;
+			text-align: center;
+			color:$colorWhite;
+			font-size: $fs32;
+			display: block;
+			text-decoration: none;
+			&:hover{
+				text-decoration: none;
+			}
+		}
+		button{
+			float: right;
+			margin:5px 15px;
+			padding: 0.266667rem 0.533333rem;
+			font-size: $fs28;
+			color:$gray-dark;
+			text-align: center;
+			border: 1px solid $gray-base;
+			border-radius:2px;
+			background:$colorWhite;
+		}
+	}
+	.right_a_btn{
+		flex: 0 0 $afterwidth;
+		a{
+			display: block;
+			float: right;
+			margin:6px 5px;
+			padding: 0.2rem 0.2rem;
+			font-size: $fs28;
+			color:$gray-dark;
+			text-align: center;
+			border: 1px solid $gray-base;
+			border-radius:2px;
+			background:$colorWhite;
+			text-decoration: none;
+			&:hover{
+				text-decoration: none;
+			}
+		}
+	}
+}
