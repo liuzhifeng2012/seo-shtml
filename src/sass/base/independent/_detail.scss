@@ -115,3 +115,27 @@
     margin-top: 50%;
   }
 }
+
+.floatBtnToHome {
+  height: 1.33333rem;
+  width: 1.33333rem;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.45);
+  position: fixed;
+  right: 0.4rem;
+  bottom: 2.13333rem;
+}
+@media screen and (min-width: 667px) {
+  .floatBtnToHome {
+    position: sticky;
+    float: right;
+  }
+}
+
+.floatBtnToHome img {
+  height: 1.33333rem;
+  width: 1.33333rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
