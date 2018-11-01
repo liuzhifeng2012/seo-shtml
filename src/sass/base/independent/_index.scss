@@ -1,19 +1,27 @@
 .category_wrap{
     width:100%;
     max-width: 12.4rem;
-    margin:10px auto;
+    margin:10px auto; 
     overflow-x: hidden;
     &:hover{
         overflow-x:auto;
     }
-    .category_list{
-        // width:100%;
-        // max-width: 12.4rem;
-        // margin:10px auto;
+    &::-webkit-scrollbar {/*滚动条整体样式*/
+        width: 100px;     /*高宽分别对应横竖滚动条的尺寸*/
+        height: 5px;
+    }
+    &::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+        border-radius: 10px; 
+        background: #535353;
+    }
+    &::-webkit-scrollbar-track {/*滚动条里面轨道*/  
+        border-radius: 10px;
+        background: #EDEDED;
+    }
+    .category_list{ 
         list-style:none;
         font-size:16px;
-        display: flex; 
-        // overflow-x: hidden;
+        display: flex;  
         border-bottom:1px solid #ccc; 
         white-space: nowrap; 
         line-height: 40px; 
@@ -21,21 +29,35 @@
             flex:1; 
             margin:0;
             padding: 0 10px; 
+            position: relative;
             a{
-                color: #000000;
-                position: relative;
+                color: #000000; 
             }
-            // a:after{
-            //     content:'';
-            //     width:100%;
-            //     height:2px;
-            //     background:#ff8300;
-            //     position: absolute;
-            //     bottom:0;
-            //     left:0;
-            //     right:0;
-            //     display: block;
-            // }
+            a:after{
+                content:'';
+                width:30px;
+                height:3px;
+                background:#fff;
+                position: absolute;
+                bottom:0;
+                left:10px;
+                right:0;
+                display: block; 
+            }
+            a.active{
+                color: #ff8300; 
+            }
+            a.active:after{
+                content:'';
+                width:30px;
+                height:3px;
+                background:#ff8300;
+                position: absolute;
+                bottom:0;
+                left:10px;
+                right:0;
+                display: block; 
+            }
          }
     }
 }
