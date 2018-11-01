@@ -255,8 +255,8 @@ new Vue({
         postFollow() {
             this.loginWrapState = true;
             setTimeout(() => {
-                //    window.open(util.vars.domain+"pages/BindingNumberMid?sourcepath=seo&id="+this.view_id,"_self");
-                window.open("http://192.168.1.225/pages/BindingNumberMid?sourcepath=seo&id=" + this.view_id, "_self");
+                   window.open(util.vars.domain+"pages/SeoHtmlMid?sourcepath=seo&id="+this.view_id,"_self");
+                // window.open("http://192.168.1.225/pages/SeoHtmlMid?sourcepath=seo&id=" + this.view_id, "_self");
             }, 1000) 
         },
         //点赞
@@ -306,21 +306,21 @@ new Vue({
         postCollect(action) {
             this.loginWrapState = true;
             setTimeout(() => {
-                window.open(util.vars.domain + "pages/BindingNumberMid?sourcepath=seo&id=" + this.view_id, "_self");
+                window.open(util.vars.domain + "pages/SeoHtmlMid?sourcepath=seo&id=" + this.view_id, "_self");
             }, 1000) 
         }, 
         //点击回复评论按钮
         showReplayInput(commentid) {
             this.loginWrapState = true;
             setTimeout(() => {
-                window.open(util.vars.domain + "pages/BindingNumberMid?sourcepath=seo&id=" + this.view_id, "_self");
+                window.open(util.vars.domain + "pages/SeoHtmlMid?sourcepath=seo&id=" + this.view_id, "_self");
             }, 1000)
         }, 
         // 点击点赞评论 0:取消，1:点赞
         postCommentLike(commentid, isLike) {
             this.loginWrapState = true;
             setTimeout(() => {
-                window.open(util.vars.domain + "pages/BindingNumberMid?sourcepath=seo&id=" + this.view_id, "_self");
+                window.open(util.vars.domain + "pages/SeoHtmlMid?sourcepath=seo&id=" + this.view_id, "_self");
             }, 1000) 
         },
         //获取用户对作者的关注状态
@@ -359,7 +359,7 @@ new Vue({
         clickComment() {
             this.loginWrapState = true;
             setTimeout(() => {
-                window.open(util.vars.domain + "pages/BindingNumberMid?sourcepath=seo&id=" + this.view_id, "_self");
+                window.open(util.vars.domain + "pages/SeoHtmlMid?sourcepath=seo&id=" + this.view_id, "_self");
             }, 1000) 
         },
          

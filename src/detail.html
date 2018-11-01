@@ -17,7 +17,7 @@
 
 <body>
     <div class="body-layout" style="width: 100%" id="app">
-        <div class="hidid" >$view_id$</div>
+        <div class="hidid" >$view_id$</div> 
         <div>
             <header class="top-header">
                 <a class="header-left" @click="backToHome"></a>
@@ -105,7 +105,7 @@
                         </div>
                     </div>
                     <p v-if="author.desc">
-                        <span style="-webkit-box-orient:vertical;">$author_desc$</span>
+                        <span style="-webkit-box-orient:vertical;">{{author.desc}}</span>
                     </p>
                     <p v-else>
                         <span style="-webkit-box-orient:vertical;">初来乍到，还没来得及介绍自己</span>

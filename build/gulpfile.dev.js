@@ -103,7 +103,8 @@ function dev() {
             }, 
             notify: false,
             //使用（而不是一个自动检测到Browsersync）特定端口 
-            port: 8888
+            port: 8888,
+            ui:false
         });
         // Watch .html files  
         gulp.watch(Config.html.src, ['html:dev']);
