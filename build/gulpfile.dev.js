@@ -29,7 +29,7 @@ function dev() {
      * HTML处理 
      */
     gulp.task('html:dev', function () {
-        return gulp.src(Config.html.src).pipe(gulp.dest(Config.html.dist)).pipe(reload({
+        return gulp.src([Config.html.src,'./src/*.ico']).pipe(gulp.dest(Config.html.dist)).pipe(reload({
             stream: true
         }));
     });

@@ -16,7 +16,7 @@ function prod() {
      * HTML处理 
      */
     gulp.task('html', function () {
-        return gulp.src(Config.html.src).pipe(gulp.dest(Config.html.dist));
+        return gulp.src([Config.html.src,'./src/*.ico']).pipe(gulp.dest(Config.html.dist));
     });
     /** 
      * assets文件夹下的所有文件处理 
