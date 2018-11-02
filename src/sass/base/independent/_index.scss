@@ -61,3 +61,22 @@
          }
     }
 }
+
+.icpWrap{ 
+    background: #F0F0F0;
+    padding: 20px 0;
+    display: -ms-flexbox;
+    display: block;
+    margin: 0 -20px;
+    .icopInner{
+      width:100%;
+      p{
+        font-size: 13px;
+        color: #888888;
+        width: 100%;
+        text-align: center;
+        height:20px;
+        line-height:20px;
+      }
+    }
+  } 

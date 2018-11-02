@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <!-- <script src="https://cdn.bootcss.com/babel-polyfill/7.0.0-rc.4/polyfill.js"></script>  -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
   <title>V房，买房指导专家，房产大V_一对一买房建议，房产知识平台</title>
@@ -12,48 +13,58 @@
   <script src="./assets/flexible.debug.js"></script>
   <script src="./assets/iconfont/iconfont.js"></script>
   <script src="./assets/util.js"></script>
-  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script> 
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 </head>
 
 <body>
-  <a href="./detail.html">详情页</a>
-  <!-- <div class="category_wrap">
-    <ul class="category_list">
-      <li class="category_item">
-        <a >推荐</a>
-      </li>
-      <li  class="category_item">
-        <a class="active">宏观</a>
-      </li>
-      <li class="category_item">
-        <a >房源</a>
-      </li>
-      <li class="category_item">
-        <a >限竞房</a>
-      </li>
-      <li class="category_item">
-        <a >学校</a>
-      </li>
-      <li class="category_item">
-        <a >片区</a>
-      </li>
-      <li class="category_item">
-        <a >房价</a>
-      </li>
-      <li class="category_item">
-        <a >交易量</a>
-      </li>
-      <li class="category_item">
-        <a >海外</a>
-      </li>
-      <li class="category_item">
-        <a >风水</a>
-      </li>
-    </ul>
-  </div>  -->
+  <div class="body-layout">
+    <div>
+      <header class="top-header">
+        <article class="header-middle-143">
+          <img src="./images/nav-logo.png" />
+          <!-- <div class="searchbox" @click="goSearch()">  
+                    <img src="./images/enlarge.png" alt="" class="searchicon2">
+                    <label>请输入关键字</label>
+                </div> -->
+        </article>
+      </header>
+    </div>
+    <article>
+      <!-- 文章列表 -->
+      <div class="vf-news index-view_list" ref="indexList">
+        <div class="vf-news-list">
+          <!--列表项开始-->
+          <div>
+            <article class="vf-news-list_con vf-news-list_con-LR border-bottom">
+              <a href="./$view_id$.html">
+                <div class="news-info">
+                  <h3 class="title">$view_title$</h3>
+                  <div class="title-tips">
+                    <span class="news-scour">$author_name$</span>
+                    <span class="pubtime">$publishTime$</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div> 
+          <!--列表项结束-->
 
+          <div class="icpWrap">
+            <div class="icopInner">
+              <p>
+                CopyRight © 2018 Vfang.All Rights Reserved
+              </p>
+              <p>
+                冀ICP备18017960号-1
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <script src="./js/index.js"></script>
+    </article>
+  </div>
+
 </body>
 
 </html>
