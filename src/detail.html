@@ -4,48 +4,46 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-    <title>$view_title$</title>
-    <meta name="description" content="$meta_description$" />
-    <meta name="keywords" content="$meta_keywords$" />
+    <title></title>
+    <!--<meta name="description" content="$meta_description$" />
+    <meta name="keywords" content="$meta_keywords$" /> -->
     <link rel="stylesheet" href="./css/style.css">
     <script src="./assets/jquery.min.js"></script>
     <script src="./assets/flexible.debug.js"></script>
     <script src="./assets/iconfont/iconfont.js"></script>
     <script src="./assets/util.js"></script>
-    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script> 
+    <!-- <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>  -->
 </head>
 
 <body>
     <div class="body-layout" style="width: 100%" id="app">
-        <div class="hidid" >$view_id$</div> 
         <div>
             <header class="top-header">
-                <a class="header-left" @click="backToHome"></a>
+                <a class="header-left"></a>
                 <article class="header-middle">观点详情</article>
             </header>
         </div>
         <!-- 详情 -->
-        <div class="vf-detail">
+        <div class="vf-detail" style="margin-top:66px;">
             <div class="vf-detail_container">
                 <!-- 头部内容 -->
                 <div class="vf-detail_container__header">
-                    <h1 class="title" style="-webkit-box-orient:vertical;" v-if="viewDetail.view_title">$view_title$</h1>
+                    <h1 class="title" style="-webkit-box-orient:vertical;" id="view_title">$view_title$</h1>
                     <div class="header-info">
                         <div class="dvhead">
-                            <img src="./images/default_user_img.png" v-if="!author.author_avatar" />
-                            <img :src="author.author_avatar+'?x-oss-process=image/resize,m_fill,h_200,w_200,limit_0'" alt="" v-else>
+                            $avatar_img$
                         </div>
                         <div class="header-info_text">
-                            <span @click="goLargeVipDetail">
-                                <img src="./images/icon-v.png" alt="" v-if="false">$author_name$
+                            <span id="author_name">
+                                $author_name$
                             </span>
-                            <span v-if="viewDetail.publish_time">{{publishTime}}</span>
+                            <span id="publish_time">$publish_time$</span>
                         </div>
-                        <div v-if="showFollow">
-                            <div class="header-info_btn already-concern" @click.stop="postFollow" v-if="isFollow">
+                        <div class="showFollow">
+                            <div class="header-info_btn already-concern isFollow">
                                 <a href="javascript:;">已关注</a>
                             </div>
-                            <div class="header-info_btn" @click.stop="postFollow" v-else>
+                            <div class="header-info_btn noIsFollow">
                                 <a href="javascript:;">
                                     <i></i>关注</a>
                             </div>
@@ -53,39 +51,38 @@
                     </div>
                 </div>
                 <!-- 文章内容 -->
-                <div class="vf-detail_container__main" v-html="view_content" ref="viewContent">
-                    $view_content$
+                <div class="vf-detail_container__main" ref="viewContent" id="viewContent">
                 </div>
 
                 <!--点赞 -->
                 <div class="btn-digg">
-                    <a v-if="!isDigg" class="border" href="javascript:;"  @click="postLike(2)">
+                    <a id="noIsDigg" class="border" href="javascript:;">
                         <svg class="icon" aria-hidden="true">
                             <use xlink:href="#icon-thumbs-up"></use>
                         </svg>
-                        <p v-if="likeAmount"> {{likeAmount > 0 ? (likeAmount > 99 ? "99+" : likeAmount) : ""}}</p>
+                        <p class="likeAmount">$likeAmount$</p>
                     </a>
-                    <a v-if="isDigg" class="btn-digg-on border" href="javascript:;"  @click="postLike(2)">
+                    <a id="isDigg" class="btn-digg-on border" href="javascript:;">
                         <svg class="icon" aria-hidden="true">
                             <use xlink:href="#icon-thumbs-up-color1"></use>
                         </svg>
-                        <p v-if="likeAmount"> {{likeAmount > 0 ? (likeAmount > 99 ? "99+" : likeAmount) : ""}}</p>
+                        <p class="likeAmount">$likeAmount$</p>
                     </a>
                 </div>
 
                 <div class="vf_con_footinfo">
-                    <ul class="taglist" v-if="viewDetail.label&&viewDetail.label.length>0">
-                        <li v-for="(item,index) in viewDetail.label.split(',')" :key="index" class="tagitem" @click="goSearchPage(item)">{{item}}</li>
+                    <ul class="taglist">
+                        <!-- <li v-for="(item,index) in viewDetail.label.split(',')" :key="index" class="tagitem" @click="goSearchPage(item)">{{item}}</li> -->
                     </ul>
                 </div>
             </div>
         </div>
         <!-- 大V关注信息 -->
-        <div class="V-info" @click="goLargeVipDetail" >
+        <div class="V-info" id="davFocus">
             <div class="V-info_content">
                 <div class="V-pic">
-                    <img src="./images/default_user_img.png" v-if="!author.author_avatar" />
-                    <img :src="author.author_avatar+'?x-oss-process=image/resize,m_fill,h_200,w_200,limit_0'" alt="" v-else>
+                    <!-- <img src="./images/default_user_img.png" v-if="!author.author_avatar" />
+                    <img :src="author.author_avatar+'?x-oss-process=image/resize,m_fill,h_200,w_200,limit_0'" alt="" v-else> -->
                 </div>
                 <div class="V-info">
                     <div class="header-info">
@@ -94,20 +91,20 @@
                                 $author_name$
                             </span>
                         </div>
-                        <div v-if="showFollow">
-                            <div class="header-info_btn already-concern" @click.stop="postFollow" v-if="isFollow">
+                        <div class="showFollow">
+                            <div class="header-info_btn already-concern isFollow">
                                 <a href="javascript:;">已关注</a>
                             </div>
-                            <div class="header-info_btn" @click.stop="postFollow"  v-else>
+                            <div class="header-info_btn noIsFollow">
                                 <a href="javascript:;">
                                     <i></i>关注</a>
                             </div>
                         </div>
                     </div>
-                    <p v-if="author.desc">
-                        <span style="-webkit-box-orient:vertical;">{{author.desc}}</span>
+                    <p id="authorDesc">
+                        <span style="-webkit-box-orient:vertical;">$author.desc$</span>
                     </p>
-                    <p v-else>
+                    <p id="noAuthorDesc">
                         <span style="-webkit-box-orient:vertical;">初来乍到，还没来得及介绍自己</span>
                     </p>
                 </div>
@@ -116,12 +113,12 @@
         <div class="vf-detail" style="padding-bottom: 50px;">
             <div class="vf-detail_container cancel-padding">
                 <!-- 其他大V观点 -->
-                <div class="vf-detail_container__otherV " v-if="recommendList&&recommendList.length>0">
+                <div class="vf-detail_container__otherV">
                     <h3 class="title">其他V房大V观点</h3>
                     <ul>
-                        <li v-for="(item, index) in recommendList" :key="index" @click="goDetail(item.view_id)">
-                            <a href="javascript:;" v-if="item.view_title">{{item.view_title}}</a>
-                        </li>
+                        <!-- <li v-for="(item, index) in recommendList" :key="index" @click="goDetail(item.view_id)">
+                            <a href="javascript:;">{{item.view_title}}</a>
+                        </li> -->
                     </ul>
                 </div>
                 <!-- 评价列表 -->
@@ -129,12 +126,12 @@
                     <div class="vf-detail_container__evaulate">
                         <h3 class="title">热门评论</h3>
 
-                        <div class="comm-none" v-if="!commentList.comment_list">
+                        <div class="comm-none">
                             暂无用户发表评论，
-                            <a href="javascript:;" @click="clickComment" >抢沙发</a>
-                        </div>  
+                            <a href="javascript:;">抢沙发</a>
+                        </div>
 
-                        <div class="evaulate-list" v-if="commentList.comment_list" v-for="(item, index) in commentList.comment_list" :key="index">
+                        <!-- <div class="evaulate-list" v-if="commentList.comment_list" v-for="(item, index) in commentList.comment_list" :key="index">
                             <div class="pic">
                                 <img :src="!item.user_avatar?'./images/default_user_img.png':item.user_avatar">
                             </div>
@@ -145,8 +142,8 @@
                                     <div class="detail clearfix">
                                         <span class="times">{{item.publish_time}}</span>
 
-                                        <!--评论点赞-->
-                                        <span class="nums" @click="postCommentLike(item.comment_id, item.is_like)" >
+                                        //评论点赞
+                                        <span class="nums" @click="postCommentLike(item.comment_id, item.is_like)">
                                             <svg class="icon on" aria-hidden="true" v-if="item.is_like">
                                                 <use xlink:href="#icon-thumbs-up-color1"></use>
                                             </svg>
@@ -154,7 +151,7 @@
                                                 <use xlink:href="#icon-thumbs-up"></use>
                                             </svg>{{item.like_amount > 99 ? "99+" : item.like_amount + ""}}
                                         </span>
-                                        <!--回复评论按钮-->
+                                        //回复评论按钮
                                         <span class="message" @click="showReplayInput(item.comment_id)">
                                             <svg class="icon" aria-hidden="true">
                                                 <use xlink:href="#icon-message-square"></use>
@@ -165,7 +162,7 @@
                                     </div>
 
                                     <div class="return-message" v-if="item.reply&&item.reply.length>0">
-                                        <!--回复列表-->
+                                        //回复列表
                                         <div class="return-message_list" v-for="(relayItem,i) in item.reply" :key="i">
                                             <em>{{relayItem.user_name}}：</em>
                                             <em @click="showReplayInput(relayItem.reply_id)">{{relayItem.contentFmt}}</em>
@@ -173,50 +170,51 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
-            <!-- 加载更多 -->
+            <!-- //加载更多 -->
             <article class="vf-bottom-tps">
-                <div class="vf-bottom-tps_line" v-show="bottomText.length>0">
-                    <span>{{bottomText}}</span>
+                <div class="vf-bottom-tps_line">
+                    <span></span>
                 </div>
             </article>
         </div>
         <!-- 底部 -->
         <div class="detail-footer border-top">
-            <div class="detail-footer_left" @click="clickComment" >
+            <div class="detail-footer_left">
                 写评论...
             </div>
             <div class="detail-footer_right">
-                <!--底部评论总数量 -->
-                <a onclick="javascript:document.getElementById('comment-list').scrollIntoView()" >
+                <!-- 底部评论总数量 -->
+                <a>
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-message-square"></use>
                     </svg>
-                    <p v-if="commentList.total_count">
-                        {{commentList.total_count > 99 ? "99+" : commentList.total_count + ""}}</p>
+                    <p id="commentListTotal">
+                        <!-- $commentTotal$ -->
+                    </p>
                 </a>
-                <!--新增底部点赞 -->
-                <a href="javascript:;" @click="postCollect(1)">
-                    <svg class="icon" aria-hidden="true" v-if="!isCollect">
+                <!-- 新增底部点赞 -->
+                <a href="javascript:;" id="postCollect">
+                    <svg class="icon" aria-hidden="true" id="noIsCollect">
                         <use xlink:href="#icon-star"></use>
                     </svg>
-                    <svg class="icon" aria-hidden="true" v-if="isCollect">
+                    <svg class="icon" aria-hidden="true" id="isCollect">
                         <use xlink:href="#icon-star-color"></use>
                     </svg>
                 </a>
             </div>
         </div>
- 
+
         <!-- 新增浮动按钮 -->
-        <div class="floatBtnToHome" @click="backToHome">
+        <div class="floatBtnToHome">
             <img src="./images/icon_tohome_btn.png">
         </div>
 
         <!-- 正在努力加载中 -->
-        <div class="loadingContainer" v-show="coverdivState">
+        <div class="loadingContainer" style="bottom:44px;">
             <div class="loader">
                 <img src="./images/c-loading.svg">
                 <div class="msgText">正在努力加载中</div>
@@ -224,11 +222,11 @@
         </div>
 
         <!--登录弹窗-->
-        <div class="loginboxWrap" v-show="loginWrapState">
+        <!-- <div class="loginboxWrap" v-show="loginWrapState">
             <div class="loginbox">
                 请先登录
             </div>
-        </div>
+        </div> -->
     </div>
     <script src="./js/detail.js"></script>
 </body>

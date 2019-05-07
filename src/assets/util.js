@@ -2,13 +2,14 @@ let util = {}
 
 util.vars = {}
 
-let domain = window.location.protocol + '//' + window.location.hostname + '/';
-if (domain.indexOf("c.davfang.com") > -1||domain.indexOf("cm.davfang.com") > -1) {//测试环境
-    util.vars.domain = window.location.protocol + '//' + 'c.davfang.com/'
-}
-else {//正式环境
-    util.vars.domain = window.location.protocol + '//' + 'www.davfang.com/'
-}
+// let domain = window.location.protocol + '//' + window.location.hostname + '/';
+// if (domain.indexOf("c.vfanghao.com") > -1||domain.indexOf("cm.vfanghao.com") > -1) {//测试环境
+//     util.vars.domain = window.location.protocol + '//' + 'c.vfanghao.com/'
+// }
+// else {//正式环境
+//     util.vars.domain = window.location.protocol + '//' + 'www.vfanghao.com/'
+// }
+util.vars.domain = window.location.protocol + '//' + 'www.vfanghao.com/'
 
 //获取浏览器参数
 util.getQueryString = function (name) {

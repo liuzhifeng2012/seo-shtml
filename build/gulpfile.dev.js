@@ -18,7 +18,7 @@ function dev() {
 
     var jsonPlaceholderProxy = proxy('/api', {
         // target: 'http://192.168.1.222:8080',
-        target: 'http://c.davfang.com',
+        target: 'https://c.vfanghao.com',
         changeOrigin: true,
         pathRewrite: {
             '^/api': 'api'
@@ -103,7 +103,7 @@ function dev() {
             }, 
             notify: false,
             //使用（而不是一个自动检测到Browsersync）特定端口 
-            port: 8888,
+            port: 8000,
             ui:false
         });
         // Watch .html files  
