@@ -22,20 +22,30 @@
       <header class="top-header">
         <article class="header-middle-143">
           <img src="./images/nav-logo.png" />
-          <!-- <div class="searchbox" @click="goSearch()">  
-                    <img src="./images/enlarge.png" alt="" class="searchicon2">
-                    <label>请输入关键字</label>
-                </div> -->
+          <div class="searchbox">
+            <img src="./images/enlarge.png" alt="" class="searchicon2">
+            <label>请输入关键字</label>
+          </div>
         </article>
       </header>
     </div>
-
-    <!-- 文章列表 -->
-    <div class="vf-news index-view_list" ref="indexList">
-      <div class="vf-news-list">
-        <!--列表项开始-->
-        <div id="articlewrap">
-          <!--<article class="vf-news-list_con vf-news-list_con-LR border-bottom">
+    <article class="vf-news-box marginTop44">
+      <!--头部分类-->
+      <div class="header border-bottom">
+        <div class="header-list">
+          <ul>
+            <!-- <li v-for="(item,index) in header" @click="clickHeader(item.category_id,item)">
+              <a :class="item.category_id == indexCh ?'active':''" href="javascript:void(0);">{{item.category_name}}</a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+      <!-- 文章列表 -->
+      <div class="vf-news index-view_list" ref="indexList">
+        <div class="vf-news-list">
+          <!--列表项开始-->
+          <div id="articlewrap">
+            <!--<article class="vf-news-list_con vf-news-list_con-LR border-bottom">
                <a href="./$view_id$.html">
                 <div class="news-info">
                   <h3 class="title">$view_title$</h3>
@@ -49,29 +59,31 @@
                 </div>
               </a> 
           </article>-->
-        </div>
-        <!--列表项结束-->
-        <div class="icpWrap">
-          <div class="icopInner">
-            <p>
-              CopyRight © 2018 Vfang.All Rights Reserved
-            </p>
-            <p>
-              冀ICP备18017960号-1
-            </p>
+          </div>
+          <article class="vf-bottom-tps">
+            <!-- <div class="vf-bottom-tps_line" :style="{display:(mcShow&&bottomText.length>0)?'block':'none'}">
+              <span>{{bottomText}}</span>
+            </div> -->
+          </article>
+          <!--列表项结束-->
+          <div class="icpWrap">
+            <div class="icopInner">
+              <p>
+                CopyRight © 2018 Vfang.All Rights Reserved
+              </p>
+              <p>
+                冀ICP备18017960号-1
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-
-    <!-- 正在努力加载中 -->
-    <div class="loadingContainer">
-      <div class="loader">
-        <img src="./images/c-loading.svg">
-        <div class="msgText">正在努力加载中</div>
+      <div class="vf-no-news">
+        <img src="./images/comic-none.png">
+        <p>当前观点,暂无内容</p>
       </div>
-    </div>
+
+    </article>
   </div>
   <script src="./js/index.js"></script>
 </body>
