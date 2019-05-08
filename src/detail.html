@@ -39,7 +39,7 @@
                             </span>
                             <span id="publish_time">$publish_time$</span>
                         </div>
-                        <div class="showFollow">
+                        <!-- <div class="showFollow">
                             <div class="header-info_btn already-concern isFollow">
                                 <a href="javascript:;">已关注</a>
                             </div>
@@ -47,7 +47,7 @@
                                 <a href="javascript:;">
                                     <i></i>关注</a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <!-- 文章内容 -->
@@ -55,7 +55,7 @@
                 </div>
 
                 <!--点赞 -->
-                <div class="btn-digg">
+                <!-- <div class="btn-digg">
                     <a id="noIsDigg" class="border" href="javascript:;">
                         <svg class="icon" aria-hidden="true">
                             <use xlink:href="#icon-thumbs-up"></use>
@@ -68,7 +68,7 @@
                         </svg>
                         <p class="likeAmount">$likeAmount$</p>
                     </a>
-                </div>
+                </div> -->
 
                 <div class="vf_con_footinfo">
                     <ul class="taglist">
@@ -91,7 +91,7 @@
                                 $author_name$
                             </span>
                         </div>
-                        <div class="showFollow">
+                        <!-- <div class="showFollow">
                             <div class="header-info_btn already-concern isFollow">
                                 <a href="javascript:;">已关注</a>
                             </div>
@@ -99,7 +99,7 @@
                                 <a href="javascript:;">
                                     <i></i>关注</a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <p id="authorDesc">
                         <span style="-webkit-box-orient:vertical;">$author.desc$</span>
@@ -127,8 +127,9 @@
                         <h3 class="title">热门评论</h3>
 
                         <div class="comm-none">
-                            暂无用户发表评论，
-                            <a href="javascript:;">抢沙发</a>
+                            暂无用户发表评论
+                            <!-- 暂无用户发表评论，
+                            <a href="javascript:;">抢沙发</a> -->
                         </div>
 
                         <!-- <div class="evaulate-list" v-if="commentList.comment_list" v-for="(item, index) in commentList.comment_list" :key="index">
@@ -182,21 +183,21 @@
             </article>
         </div>
         <!-- 底部 -->
-        <div class="detail-footer border-top">
+        <!-- <div class="detail-footer border-top">
             <div class="detail-footer_left">
                 写评论...
             </div>
             <div class="detail-footer_right">
-                <!-- 底部评论总数量 -->
+                //底部评论总数量
                 <a>
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-message-square"></use>
                     </svg>
                     <p id="commentListTotal">
-                        <!-- $commentTotal$ -->
+                        $commentTotal$
                     </p>
                 </a>
-                <!-- 新增底部点赞 -->
+                //新增底部点赞
                 <a href="javascript:;" id="postCollect">
                     <svg class="icon" aria-hidden="true" id="noIsCollect">
                         <use xlink:href="#icon-star"></use>
@@ -206,7 +207,7 @@
                     </svg>
                 </a>
             </div>
-        </div>
+        </div> -->
 
         <!-- 新增浮动按钮 -->
         <div class="floatBtnToHome">
@@ -214,7 +215,7 @@
         </div>
 
         <!-- 正在努力加载中 -->
-        <div class="loadingContainer" style="bottom:44px;">
+        <div class="loadingContainer">
             <div class="loader">
                 <img src="./images/c-loading.svg">
                 <div class="msgText">正在努力加载中</div>

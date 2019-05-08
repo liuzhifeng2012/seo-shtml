@@ -86,7 +86,7 @@ function jqExecListData() {
                                                 <div class="title-tips">
                                                     <span class="news-scour">${item.author_name}</span>
                                                     <span class="pubtime">${'阅读 ' + item.view_sum}</span>
-                                                    <span class="pubtime">${item.publish_time}</span>
+                                                    <span class="pubtime">${item.publish_time_fmt}</span>
                                                 </div>
                                             </div>
                                             ${articleImgHtml}

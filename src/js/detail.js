@@ -50,31 +50,31 @@ $(function () {
     })
     //进入大v页面
     $("#author_name,#davFocus").click(() => {
-        goLargeVipDetail();
+        // goLargeVipDetail();
     })
     //关注
     $(".isFollow,.noIsFollow").click(() => {
-        postFollow();
+        // postFollow();
     })
     //点赞
     $("#isDigg,#noIsDigg").click(() => {
-        postLike(2);
+        // postLike(2);
     })
     //写评论
     $(".detail-footer_left,.detail-footer_right").click(() => {
-        clickComment();
+        // clickComment();
     })
     //点赞
     $("#postCollect").click(() => {
-        postCollect(1)
+        // postCollect(1)
     })
     //抢沙发
     $(".comm-none").children('a').click(() => {
-        clickComment();
+        // clickComment();
     })
 })
 function goSearchPage(skeyVal) {
-    window.open(util.vars.domain + 'pages/Search?skey=' + encodeURIComponent(skeyVal) + '&&isByClickKey=1', '_self')
+    // window.open(util.vars.domain + 'pages/Search?skey=' + encodeURIComponent(skeyVal) + '&&isByClickKey=1', '_self')
 }
 
 function initData() {
@@ -138,7 +138,7 @@ function fetchViewDetail() {
                     $(".taglist").show().html('');
                     viewDetail.label.split(',').forEach(item => {
                         let tagitem = $("<li>").addClass('tagitem').text(item).click(() => {
-                            goSearchPage(item);
+                            // goSearchPage(item);
                         })
                         $(".taglist").append(tagitem);
                     })
@@ -165,7 +165,7 @@ function fetchViewDetail() {
                     item.style.textDecoration = 'underline'
                     item.style.cursor = 'pointer'
                     item.addEventListener('click', function (params) {
-                        window.open(util.vars.domain + 'pages/Search?isByClickKey=1&skey=' + encodeURIComponent(item.innerText), '_self');
+                        // window.open(util.vars.domain + 'pages/Search?isByClickKey=1&skey=' + encodeURIComponent(item.innerText), '_self');
                     }, false)
                 })
 
@@ -187,7 +187,7 @@ function fetchViewDetail() {
                 }, 500)
             }
             else if (res.code == 1401) {
-                window.open(util.vars.domain + 'pages/Error404', '_self');
+                // window.open(util.vars.domain + 'pages/Error404', '_self');
             }
         });
 }
@@ -413,23 +413,23 @@ function fetchCommentList() {
 function postFollow() {
     loginWrapState = true;
     setTimeout(() => {
-        window.open(util.vars.domain + "pages/SeoHtmlMid?sourcepath=seo&id=" + view_id, "_self");
+        // window.open(util.vars.domain + "pages/SeoHtmlMid?sourcepath=seo&id=" + view_id, "_self");
         // window.open("http://192.168.1.225/pages/SeoHtmlMid?sourcepath=seo&id=" + view_id, "_self");
     }, 1000)
 }
 //点赞
 function postLike(action) {
     //this.loginWrapState = true;
-    setTimeout(() => {
-        window.open(util.vars.domain + "pages/SeoHtmlMid?sourcepath=seo&id=" + view_id, "_self");
-    }, 1000)
+    // setTimeout(() => {
+    //     window.open(util.vars.domain + "pages/SeoHtmlMid?sourcepath=seo&id=" + view_id, "_self");
+    // }, 1000)
 }
 //收藏
 function postCollect(action) {
     //this.loginWrapState = true;
-    setTimeout(() => {
-        window.open(util.vars.domain + "pages/SeoHtmlMid?sourcepath=seo&id=" + view_id, "_self");
-    }, 1000)
+    // setTimeout(() => {
+    //     window.open(util.vars.domain + "pages/SeoHtmlMid?sourcepath=seo&id=" + view_id, "_self");
+    // }, 1000)
 }
 
 //获取用户对作者的关注状态
@@ -492,19 +492,20 @@ function fetchActionStatus() {
 }
 //去大v详情
 function goLargeVipDetail() {
-    window.open(util.vars.domain + "pages/LargeVipDetail?aId=" + author_id, '_self');
+    // window.open(util.vars.domain + "pages/LargeVipDetail?aId=" + author_id, '_self');
 }
 //点击评论文章
 function clickComment() {
     //this.loginWrapState = true;
-    setTimeout(() => {
-        window.open(util.vars.domain + "pages/SeoHtmlMid?sourcepath=seo&id=" + view_id, "_self");
-    }, 1000)
+    // setTimeout(() => {
+    //     window.open(util.vars.domain + "pages/SeoHtmlMid?sourcepath=seo&id=" + view_id, "_self");
+    // }, 1000)
 }
 
 //查看其它文章详情
 function goDetail(view_id) {
-    window.open(util.vars.domain + 'pages/Detail?id=' + view_id, '_self')
+    // window.open(util.vars.domain + 'pages/Detail?id=' + view_id, '_self')
+    window.open('./detail.html?articleid=' + view_id, '_self')
 }
 
 //点击浮窗调回首页
@@ -521,14 +522,14 @@ function backToHome() {
 //点击回复评论按钮
 function showReplayInput(commentid, view_id) {
     //this.loginWrapState = true;
-    setTimeout(() => {
-        window.open(util.vars.domain + "pages/SeoHtmlMid?sourcepath=seo&id=" + view_id, "_self");
-    }, 1000)
+    // setTimeout(() => {
+    //     window.open(util.vars.domain + "pages/SeoHtmlMid?sourcepath=seo&id=" + view_id, "_self");
+    // }, 1000)
 }
 // 点击点赞评论 0:取消，1:点赞
 function postCommentLike(commentid, isLike, view_id) {
     //this.loginWrapState = true;
-    setTimeout(() => {
-        window.open(util.vars.domain + "pages/SeoHtmlMid?sourcepath=seo&id=" + view_id, "_self");
-    }, 1000)
+    // setTimeout(() => {
+    //     window.open(util.vars.domain + "pages/SeoHtmlMid?sourcepath=seo&id=" + view_id, "_self");
+    // }, 1000)
 }
