@@ -1,7 +1,7 @@
 var author = {}         //  作者详情
 var viewDetail = {}     //  观点详情
-var metaTitle = 'V房，买房指导专家，房产大V_一对一买房建议，房产知识平台'
-var metaContent = ''
+// var metaTitle = 'V房，买房指导专家，房产大V_一对一买房建议，房产知识平台'
+// var metaContent = ''
 var previewImgList = []  //  预览图片列表
 var view_content = ""    //  观点详情详细内容
 var likeAmount = 0      //  观点点赞数
@@ -130,9 +130,9 @@ function fetchViewDetail() {
                 viewDetail = res.data;
                 // metaTitle = viewDetail.view_title + ' ' + viewDetail.author_name;
                 // metaContent = 'v房 ' + viewDetail.view_title + ' ' + viewDetail.author_name + ' ' + viewDetail.label;
-                metaContent = viewDetail.view_content.replace(/<\/?.+?>/g, "").replace(/ /g, "").substr(0, 100);
-                metaTitle = 'V房，V房网，房产大V，饭总选房，北京买房，购房买房，房产资讯，北京房产'
-                $("head").append(`<meta name="description" content="${metaContent}" />`).append(`<meta name="keywords" content="${metaTitle}" />`);
+                let metaContent = viewDetail.view_content.replace(/<\/?.+?>/g, "").replace(/ /g, "").substr(0, 100);
+                let metaKeywords = 'V房，V房网，房产大V，饭总选房，北京买房，购房买房，房产资讯，北京房产'
+                $("head").append(`<meta name="description" content="${metaContent}" />`).append(`<meta name="keywords" content="${metaKeywords}" />`);
                 $('title').html(viewDetail.view_title);
                 if (viewDetail.label && viewDetail.label.length > 0) {
                     $(".taglist").show().html('');
