@@ -80,11 +80,11 @@ function goSearchPage(skeyVal) {
 function initData() {
     view_id = util.getQueryString("articleid");
     resetData();
-    fetchViewDetail();
-    fetchStatistic();
+    // fetchViewDetail();
+    // fetchStatistic();
     fetchRecommendList();
     fetchCommentList();
-    fetchActionStatus();
+    // fetchActionStatus();
 }
 function resetData() {
     likeAmount = 0      //  观点点赞数

@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-    <title></title>
-    <!--<meta name="description" content="$meta_description$" />
-    <meta name="keywords" content="$meta_keywords$" /> -->
+    <title>$view_title$</title>
+    <meta name="description" content="$meta_description$" />
+    <meta name="keywords" content="$meta_keywords$" />
     <link rel="stylesheet" href="./css/style.css">
     <script src="./assets/jquery.min.js"></script>
     <script src="./assets/flexible.debug.js"></script>
@@ -52,6 +52,7 @@
                 </div>
                 <!-- 文章内容 -->
                 <div class="vf-detail_container__main" ref="viewContent" id="viewContent">
+                    $view_content$
                 </div>
 
                 <!--点赞 -->
@@ -72,6 +73,8 @@
 
                 <div class="vf_con_footinfo">
                     <ul class="taglist">
+                        <!--标签列表(需要循环li)-->
+                        $tag$
                         <!-- <li v-for="(item,index) in viewDetail.label.split(',')" :key="index" class="tagitem" @click="goSearchPage(item)">{{item}}</li> -->
                     </ul>
                 </div>
@@ -102,11 +105,11 @@
                         </div> -->
                     </div>
                     <p id="authorDesc">
-                        <span style="-webkit-box-orient:vertical;">$author.desc$</span>
+                        <span style="-webkit-box-orient:vertical;">$author_desc$</span>
                     </p>
-                    <p id="noAuthorDesc">
+                    <!-- <p id="noAuthorDesc">
                         <span style="-webkit-box-orient:vertical;">初来乍到，还没来得及介绍自己</span>
-                    </p>
+                    </p> -->
                 </div>
             </div>
         </div>
@@ -215,12 +218,12 @@
         </div>
 
         <!-- 正在努力加载中 -->
-        <div class="loadingContainer">
+        <!-- <div class="loadingContainer">
             <div class="loader">
                 <img src="./images/c-loading.svg">
                 <div class="msgText">正在努力加载中</div>
             </div>
-        </div>
+        </div> -->
 
         <!--登录弹窗-->
         <!-- <div class="loginboxWrap" v-show="loginWrapState">
