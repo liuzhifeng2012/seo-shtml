@@ -511,7 +511,8 @@ function goDetail(view_id) {
 //点击浮窗调回首页
 function backToHome() {
     // window.open(util.vars.domain, '_self')
-    window.history.go(-1)
+    // window.history.go(-1)
+    window.open('http://www.vfanghao.com','_self');
 }
 
 // //取消评论和回复
