@@ -320,22 +320,22 @@ function onScrollPull() {
 }
 function routeAD(itemid, itemtype, itemtitle, itemurl) {
 
-    util.ajaxGet("/api/ad/click/" + itemid + "/" + itemtype).then(res => {
-        console.log(res);
-        if (res.code == "1201" || res.code == "1202") {
-            return;
-        } else {
-            if (res.code == 1) {
-                if (itemtype == 1) {
-                    window.open(util.vars.domain + "pages/AD?ADId=" + itemid + "&title=" + itemtitle + "&adUrl=" + itemurl, '_self');
-                } else if (itemtype == 2) {
-                    window.open(util.vars.domain + "pages/AD?ADId=" + itemid + "&title=" + itemtitle + "&adUrl=" + itemurl, '_self');
-                } else if (itemtype == 3) {
-                    window.open(util.vars.domain + "pages/AD?ADId=" + itemid + "&title=" + itemtitle + "&adUrl=" + itemurl, '_self');
-                }
-            }
-        }
-    });
+    // util.ajaxGet("/api/ad/click/" + itemid + "/" + itemtype).then(res => {
+    //     console.log(res);
+    //     if (res.code == "1201" || res.code == "1202") {
+    //         return;
+    //     } else {
+    //         if (res.code == 1) {
+    //             if (itemtype == 1) {
+    //                 window.open(util.vars.domain + "pages/AD?ADId=" + itemid + "&title=" + itemtitle + "&adUrl=" + itemurl, '_self');
+    //             } else if (itemtype == 2) {
+    //                 window.open(util.vars.domain + "pages/AD?ADId=" + itemid + "&title=" + itemtitle + "&adUrl=" + itemurl, '_self');
+    //             } else if (itemtype == 3) {
+    //                 window.open(util.vars.domain + "pages/AD?ADId=" + itemid + "&title=" + itemtitle + "&adUrl=" + itemurl, '_self');
+    //             }
+    //         }
+    //     }
+    // });
 }
 
 // function routeDetail(item) {
