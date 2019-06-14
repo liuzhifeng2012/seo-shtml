@@ -127,27 +127,27 @@ function jqExecListData() {
             }
         }
         else {
-            let $html = ``
-            if (index == list[indexCh].length - 1) {
-                $html += `<article class="vf-news-list_con" >`
-            }
-            else {
-                $html += `<article class="vf-news-list_con border-bottom">`
-            }
-            $html += `<a href="javascript:void(0);" onclick="routeAD(${item.id},${item.type},'${item.title}','${item.url}')">
-                    <div class="AD-info">
-                      <h3 class="title">${item.title}</h3>
-                    </div>
-                    <div class="AD-img">
-                      <img src="${item.bigPic}">
-                    </div>
-                    <div class="AD-bottom">
-                      <img src="http://image.vfanghao.com/ad/ad_txt_blue.png">
-                      <span class="AD-Owern">${item.advertiser}</span>
-                    </div>
-                  </a>
-                </article>`
-            articleHtml += $html
+            // let $html = ``
+            // if (index == list[indexCh].length - 1) {
+            //     $html += `<article class="vf-news-list_con" >`
+            // }
+            // else {
+            //     $html += `<article class="vf-news-list_con border-bottom">`
+            // }
+            // $html += `<a href="javascript:void(0);" onclick="routeAD(${item.id},${item.type},'${item.title}','${item.url}')">
+            //         <div class="AD-info">
+            //           <h3 class="title">${item.title}</h3>
+            //         </div>
+            //         <div class="AD-img">
+            //           <img src="${item.bigPic}">
+            //         </div>
+            //         <div class="AD-bottom">
+            //           <img src="http://image.vfanghao.com/ad/ad_txt_blue.png">
+            //           <span class="AD-Owern">${item.advertiser}</span>
+            //         </div>
+            //       </a>
+            //     </article>`
+            // articleHtml += $html
         }
     })
     $("#articlewrap").html(articleHtml);
