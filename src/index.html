@@ -5,15 +5,15 @@
   <!-- <script src="https://cdn.bootcss.com/babel-polyfill/7.0.0-rc.4/polyfill.js"></script>  -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-  <title>V房_买房专业指导_一对一买房建议_房产知识平台_房源分析(北京V房网)</title>
-  <meta name="description" content="北京V房是提供北京二手房买卖、北京新房、北京房价查询等业务的专业房产网站，可为您买卖北京二手房提供房价走势分析、买房策略分析、片区咨询、学区咨询、小区及新盘推荐，房源硬伤分析及预警、免费看房团、砍价指导等专业服务。饭总选房，京房字等知名房产大V联合推荐！" />
-  <meta name="keywords" content="二手房,二手房网,北京二手房网,北京房地产,北京房产信息" />
+  <title>V房，买房指导专家，房产大V_一对一买房建议，房产知识平台</title>
+  <meta name="description" content="饭总，京房字，北京拆哪等知名房产大V联合推荐！全国值得信赖的买房指导平台，为买新房、二手房及投资房产的用户提供一对一买房建议或购房咨询" />
+  <meta name="keywords" content="V房，V房网，房产大V，饭总选房，北京买房，购房买房，房产资讯，北京房产" />
   <link rel="stylesheet" href="./css/style.css">
   <script src="./assets/jquery.min.js"></script>
   <script src="./assets/flexible.debug.js"></script>
   <script src="./assets/iconfont/iconfont.js"></script>
   <script src="./assets/util.js"></script>
-  <!-- <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script> -->
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 </head>
 
 <body>
@@ -22,31 +22,21 @@
       <header class="top-header">
         <article class="header-middle-143">
           <img src="./images/nav-logo.png" />
-          <!-- <div class="searchbox">
-            <img src="./images/enlarge.png" alt="" class="searchicon2">
-            <label>请输入关键字</label>
-          </div> -->
+          <!-- <div class="searchbox" @click="goSearch()">  
+                    <img src="./images/enlarge.png" alt="" class="searchicon2">
+                    <label>请输入关键字</label>
+                </div> -->
         </article>
       </header>
     </div>
-    <article class="vf-news-box marginTop44">
-      <!--头部分类-->
-      <div class="header border-bottom">
-        <div class="header-list">
-          <ul>
-            <!-- <li v-for="(item,index) in header" @click="clickHeader(item.category_id,item)">
-              <a :class="item.category_id == indexCh ?'active':''" href="javascript:void(0);">{{item.category_name}}</a>
-            </li> -->
-          </ul>
-        </div>
-      </div>
+    <article>
       <!-- 文章列表 -->
       <div class="vf-news index-view_list" ref="indexList">
         <div class="vf-news-list">
           <!--列表项开始-->
-          <div id="articlewrap">
-            <!--<article class="vf-news-list_con vf-news-list_con-LR border-bottom">
-               <a href="./$view_id$.html">
+          <div>
+            <article class="vf-news-list_con vf-news-list_con-LR border-bottom">
+              <a href="./$view_id$.html">
                 <div class="news-info">
                   <h3 class="title">$view_title$</h3>
                   <div class="title-tips">
@@ -54,38 +44,27 @@
                     <span class="pubtime">$publishTime$</span>
                   </div>
                 </div>
-                <div class="news-img border">
-                  <img src="https://image.vfanghao.com/saas/ava/2019/05/04/77cdc9cf-6c7f-4223-875c-b9ace3261df3.png?x-oss-process=image/resize,m_fill,h_144,w_226,limit_0" alt="">
-                </div>
-              </a> 
-          </article>-->
-          </div>
-          <article class="vf-bottom-tps">
-            <!-- <div class="vf-bottom-tps_line" :style="{display:(mcShow&&bottomText.length>0)?'block':'none'}">
-              <span>{{bottomText}}</span>
-            </div> -->
-          </article>
+              </a>
+            </article>
+          </div> 
           <!--列表项结束-->
+
           <div class="icpWrap">
             <div class="icopInner">
               <p>
                 CopyRight © 2018 Vfang.All Rights Reserved
               </p>
               <p>
-                京ICP备18059234号-1
+                冀ICP备18017960号-1
               </p>
             </div>
           </div>
         </div>
       </div>
-      <div class="vf-no-news">
-        <img src="./images/comic-none.png">
-        <p>当前观点,暂无内容</p>
-      </div>
 
     </article>
   </div>
-  <script src="./js/index.js"></script>
+
 </body>
 
 </html>
